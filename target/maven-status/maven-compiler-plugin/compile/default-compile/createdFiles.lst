@@ -1,0 +1,9 @@
+grpc\foodaid\surplus\FoodaidImpl.class
+grpc\foodaid\surplus\SurplusRequest$Builder.class
+grpc\foodaid\surplus\SurplusRequestOrBuilder.class
+grpc\foodaid\surplus\SurplusAcknowledge$1.class
+grpc\foodaid\surplus\SurplusAcknowledge.class
+grpc\foodaid\surplus\SurplusAcknowledge$Builder.class
+grpc\foodaid\surplus\SurplusAcknowledgeOrBuilder.class
+grpc\foodaid\surplus\SurplusRequest$1.class
+grpc\foodaid\surplus\SurplusRequest.class
