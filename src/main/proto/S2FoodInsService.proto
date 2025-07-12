@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package foodaid.order;
+
+option java_multiple_files = true;
+option java_package = "grpc.foodaid.Order";
+option java_outer_classname = "FoodaidImpl";
+
+// Service for placing food requests and streaming their status
+service OrderService {
+	// Unary RPC: client places a new order
+	rpc PlaceOrder(OrderRequest) returns (OrderConfirmation);
+
+	// Server-streaming RPC: client subscribes to status updates
+	rpc StreamOrderUpdates(OrderStatusRequest) returns (stream OrderStatusUpdate);
+}
+
+// Request a food order
+message OrderRequest {
+	int32 order_id = 1;          // unique order identifier
+	string recipient = 2;        // recipient identifier
+	string food_type = 3;        // ordered type of food
+	int32 quantity = 4;          // quantity requested
+	string delivery_address = 5; // delivery address
+}
+
+// Acknowledges receipt of the order
+message OrderConfirmation {
+	string order_id = 1; // order identifier
+	bool confirmed = 2; // true if order is successful
+	string message = 3; // return message
+}
+
+// Request to stream order updates
+message OrderStatusRequest { 
+	string order_id = 1;  // ID of requested order
+
+}
+
+// Each update contains state of the order
+message OrderStatusUpdate {
+	string order_id = 1; // order identifier
+	string status = 2; // PREPAIRING,READY_TO_SHIP, SHIPPED, DELIVERED
+}
