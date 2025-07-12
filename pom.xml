@@ -21,7 +21,7 @@
         <configuration>
           <protocArtifact>com.google.protobuf:protoc:3.25.3:exe:${os.detected.classifier}</protocArtifact>
           <protoSourceRoot>src/main/proto</protoSourceRoot>
-          <outputDirectory>target/generated-sources/protobuf/java</outputDirectory>
+          <outputDirectory>src/main/java</outputDirectory>
         </configuration>
         <executions>
           <execution>
