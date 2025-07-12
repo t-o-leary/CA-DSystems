@@ -226,7 +226,7 @@ public final class DeliveryServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return grpc.foodaid.Deliver.FoodaidImpl.getDescriptor();
+      return grpc.foodaid.Deliver.DeliverImpl.getDescriptor();
     }
 
     @java.lang.Override

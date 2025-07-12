@@ -97,13 +97,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.foodaid.Deliver.FoodaidImpl.internal_static_foodaid_delivery_DeliveryPlan_descriptor;
+    return grpc.foodaid.Deliver.DeliverImpl.internal_static_foodaid_delivery_DeliveryPlan_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.foodaid.Deliver.FoodaidImpl.internal_static_foodaid_delivery_DeliveryPlan_fieldAccessorTable
+    return grpc.foodaid.Deliver.DeliverImpl.internal_static_foodaid_delivery_DeliveryPlan_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             grpc.foodaid.Deliver.DeliveryPlan.class, grpc.foodaid.Deliver.DeliveryPlan.Builder.class);
   }
@@ -411,13 +411,13 @@ private static final long serialVersionUID = 0L;
       grpc.foodaid.Deliver.DeliveryPlanOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.foodaid.Deliver.FoodaidImpl.internal_static_foodaid_delivery_DeliveryPlan_descriptor;
+      return grpc.foodaid.Deliver.DeliverImpl.internal_static_foodaid_delivery_DeliveryPlan_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.foodaid.Deliver.FoodaidImpl.internal_static_foodaid_delivery_DeliveryPlan_fieldAccessorTable
+      return grpc.foodaid.Deliver.DeliverImpl.internal_static_foodaid_delivery_DeliveryPlan_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               grpc.foodaid.Deliver.DeliveryPlan.class, grpc.foodaid.Deliver.DeliveryPlan.Builder.class);
     }
@@ -452,7 +452,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.foodaid.Deliver.FoodaidImpl.internal_static_foodaid_delivery_DeliveryPlan_descriptor;
+      return grpc.foodaid.Deliver.DeliverImpl.internal_static_foodaid_delivery_DeliveryPlan_descriptor;
     }
 
     @java.lang.Override

@@ -83,13 +83,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.foodaid.Chat.FoodaidImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
+    return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.foodaid.Chat.FoodaidImpl.internal_static_foodaid_chat_ChatMessage_fieldAccessorTable
+    return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             grpc.foodaid.Chat.ChatMessage.class, grpc.foodaid.Chat.ChatMessage.Builder.class);
   }
@@ -329,13 +329,13 @@ private static final long serialVersionUID = 0L;
       grpc.foodaid.Chat.ChatMessageOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.foodaid.Chat.FoodaidImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
+      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.foodaid.Chat.FoodaidImpl.internal_static_foodaid_chat_ChatMessage_fieldAccessorTable
+      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               grpc.foodaid.Chat.ChatMessage.class, grpc.foodaid.Chat.ChatMessage.Builder.class);
     }
@@ -368,7 +368,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.foodaid.Chat.FoodaidImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
+      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
     }
 
     @java.lang.Override

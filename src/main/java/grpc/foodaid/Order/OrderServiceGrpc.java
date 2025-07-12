@@ -329,7 +329,7 @@ public final class OrderServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return grpc.foodaid.Order.FoodaidImpl.getDescriptor();
+      return grpc.foodaid.Order.OrderImpl.getDescriptor();
     }
 
     @java.lang.Override

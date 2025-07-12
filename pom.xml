@@ -56,7 +56,7 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java-util</artifactId>
-            <version>3.21.1</version>
+            <version>3.21.12</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -76,45 +76,13 @@
         <plugins>
  
    
-      <plugin>
-      <groupId>org.xolstice.maven.plugins</groupId>
-      <artifactId>protobuf-maven-plugin</artifactId>
-      <version>0.6.1</version>
-      <configuration>
-        <protocArtifact>com.google.protobuf:protoc:3.21.12:exe:${os.detected.classifier}</protocArtifact>
-      </configuration>
-      <executions>
-        <execution>
-          <goals>
-            <goal>compile</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-    
-    
-    
- 
- <plugin>
-  <groupId>kr.motd.maven</groupId>
-  <artifactId>os-maven-plugin</artifactId>
-  <version>1.7.0</version>
-  <executions>
-    <execution>
-      <goals>
-        <goal>detect</goal>
-      </goals>
-    </execution>
-  </executions>
-</plugin>
- 
-            <!-- Protobuf compiler plugin -->
-            <plugin>
+
+       <plugin>
                 <groupId>com.github.os72</groupId>
                 <artifactId>protoc-jar-maven-plugin</artifactId>
                 <version>3.11.4</version>
                 <configuration>
-                    <protocExecutable>/opt/homebrew/bin/protoc</protocExecutable>
+                   <!-- <protocExecutable>/opt/homebrew/bin/protoc</protocExecutable>-->
                     <protocArtifact>com.google.protobuf:protoc:3.21.1</protocArtifact>
                 </configuration>
                 <executions>
@@ -144,6 +112,23 @@
                     </execution>
                 </executions>
             </plugin>
+    
+ 
+ <plugin>
+  <groupId>kr.motd.maven</groupId>
+  <artifactId>os-maven-plugin</artifactId>
+  <version>1.7.0</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>detect</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+ 
+            <!-- Protobuf compiler plugin -->
+         
             
             <!-- Java compiler plugin -->
             <plugin>

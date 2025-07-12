@@ -226,7 +226,7 @@ public final class ChatServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return grpc.foodaid.Chat.FoodaidImpl.getDescriptor();
+      return grpc.foodaid.Chat.ChatImpl.getDescriptor();
     }
 
     @java.lang.Override

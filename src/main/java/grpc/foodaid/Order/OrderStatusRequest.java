@@ -82,13 +82,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.foodaid.Order.FoodaidImpl.internal_static_foodaid_order_OrderStatusRequest_descriptor;
+    return grpc.foodaid.Order.OrderImpl.internal_static_foodaid_order_OrderStatusRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.foodaid.Order.FoodaidImpl.internal_static_foodaid_order_OrderStatusRequest_fieldAccessorTable
+    return grpc.foodaid.Order.OrderImpl.internal_static_foodaid_order_OrderStatusRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             grpc.foodaid.Order.OrderStatusRequest.class, grpc.foodaid.Order.OrderStatusRequest.Builder.class);
   }
@@ -306,13 +306,13 @@ private static final long serialVersionUID = 0L;
       grpc.foodaid.Order.OrderStatusRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.foodaid.Order.FoodaidImpl.internal_static_foodaid_order_OrderStatusRequest_descriptor;
+      return grpc.foodaid.Order.OrderImpl.internal_static_foodaid_order_OrderStatusRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.foodaid.Order.FoodaidImpl.internal_static_foodaid_order_OrderStatusRequest_fieldAccessorTable
+      return grpc.foodaid.Order.OrderImpl.internal_static_foodaid_order_OrderStatusRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               grpc.foodaid.Order.OrderStatusRequest.class, grpc.foodaid.Order.OrderStatusRequest.Builder.class);
     }
@@ -343,7 +343,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.foodaid.Order.FoodaidImpl.internal_static_foodaid_order_OrderStatusRequest_descriptor;
+      return grpc.foodaid.Order.OrderImpl.internal_static_foodaid_order_OrderStatusRequest_descriptor;
     }
 
     @java.lang.Override
