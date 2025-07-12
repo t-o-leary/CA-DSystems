@@ -4,7 +4,7 @@ package foodaid.Surplus;
 
 option java_multiple_files = true;
 option java_package = "grpc.foodaid.surplus";
-option java_outer_classname = "FoodaidImpl";
+option java_outer_classname = "SurplusImpl";
 
 
 

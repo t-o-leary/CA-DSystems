@@ -4,7 +4,7 @@ package foodaid.delivery;
 
 option java_multiple_files = true;
 option java_package = "grpc.foodaid.Deliver";
-option java_outer_classname = "FoodaidImpl";
+option java_outer_classname = "DeliverImpl";
 
 // Client‐streaming RPC: submit delivery orders
 service DeliveryService {

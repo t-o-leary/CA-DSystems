@@ -4,7 +4,7 @@ package foodaid.chat;
 
 option java_multiple_files = true;
 option java_package = "grpc.foodaid.Chat";
-option java_outer_classname = "FoodaidImpl";
+option java_outer_classname = "ChatImpl";
 
 // Bi‐directional streaming RPC: live chat organisation and delivery agent
 service ChatService {
