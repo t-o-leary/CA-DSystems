@@ -10,10 +10,11 @@ option java_outer_classname = "SurplusImpl";
 
 
 // Unary RPC: service to record food surplus
-service SurplusService {
- 	rpc SurplusRecord(SurplusRequest) returns (SurplusAcknowledge);
-}
-
+   service SurplusService {
+       rpc SurplusRecord (SurplusRequest) returns (SurplusAcknowledge);
+   }
+   
+   
 message SurplusRequest {
 	int32 id = 1;                // unique identifier
 	string food_type = 2;        // type of food that is in surplus
@@ -24,6 +25,7 @@ message SurplusRequest {
 }
 
 message SurplusAcknowledge {
-	bool accepted = 1;  // true if recorded
+	bool accept = 1;  // true if recorded
 	string message = 2; // Surplus registered
 }
+
