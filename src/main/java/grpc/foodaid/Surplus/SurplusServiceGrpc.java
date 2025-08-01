@@ -1,4 +1,4 @@
-package grpc.foodaid.surplus;
+package grpc.foodaid.Surplus;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -18,29 +18,29 @@ public final class SurplusServiceGrpc {
   public static final String SERVICE_NAME = "foodaid.Surplus.SurplusService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<grpc.foodaid.surplus.SurplusRequest,
-      grpc.foodaid.surplus.SurplusAcknowledge> getSurplusRecordMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.foodaid.Surplus.SurplusRequest,
+      grpc.foodaid.Surplus.SurplusAcknowledge> getSurplusRecordMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SurplusRecord",
-      requestType = grpc.foodaid.surplus.SurplusRequest.class,
-      responseType = grpc.foodaid.surplus.SurplusAcknowledge.class,
+      requestType = grpc.foodaid.Surplus.SurplusRequest.class,
+      responseType = grpc.foodaid.Surplus.SurplusAcknowledge.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<grpc.foodaid.surplus.SurplusRequest,
-      grpc.foodaid.surplus.SurplusAcknowledge> getSurplusRecordMethod() {
-    io.grpc.MethodDescriptor<grpc.foodaid.surplus.SurplusRequest, grpc.foodaid.surplus.SurplusAcknowledge> getSurplusRecordMethod;
+  public static io.grpc.MethodDescriptor<grpc.foodaid.Surplus.SurplusRequest,
+      grpc.foodaid.Surplus.SurplusAcknowledge> getSurplusRecordMethod() {
+    io.grpc.MethodDescriptor<grpc.foodaid.Surplus.SurplusRequest, grpc.foodaid.Surplus.SurplusAcknowledge> getSurplusRecordMethod;
     if ((getSurplusRecordMethod = SurplusServiceGrpc.getSurplusRecordMethod) == null) {
       synchronized (SurplusServiceGrpc.class) {
         if ((getSurplusRecordMethod = SurplusServiceGrpc.getSurplusRecordMethod) == null) {
           SurplusServiceGrpc.getSurplusRecordMethod = getSurplusRecordMethod =
-              io.grpc.MethodDescriptor.<grpc.foodaid.surplus.SurplusRequest, grpc.foodaid.surplus.SurplusAcknowledge>newBuilder()
+              io.grpc.MethodDescriptor.<grpc.foodaid.Surplus.SurplusRequest, grpc.foodaid.Surplus.SurplusAcknowledge>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SurplusRecord"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.foodaid.surplus.SurplusRequest.getDefaultInstance()))
+                  grpc.foodaid.Surplus.SurplusRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.foodaid.surplus.SurplusAcknowledge.getDefaultInstance()))
+                  grpc.foodaid.Surplus.SurplusAcknowledge.getDefaultInstance()))
               .setSchemaDescriptor(new SurplusServiceMethodDescriptorSupplier("SurplusRecord"))
               .build();
         }
@@ -102,8 +102,8 @@ public final class SurplusServiceGrpc {
 
     /**
      */
-    public void surplusRecord(grpc.foodaid.surplus.SurplusRequest request,
-        io.grpc.stub.StreamObserver<grpc.foodaid.surplus.SurplusAcknowledge> responseObserver) {
+    public void surplusRecord(grpc.foodaid.Surplus.SurplusRequest request,
+        io.grpc.stub.StreamObserver<grpc.foodaid.Surplus.SurplusAcknowledge> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSurplusRecordMethod(), responseObserver);
     }
 
@@ -113,8 +113,8 @@ public final class SurplusServiceGrpc {
             getSurplusRecordMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                grpc.foodaid.surplus.SurplusRequest,
-                grpc.foodaid.surplus.SurplusAcknowledge>(
+                grpc.foodaid.Surplus.SurplusRequest,
+                grpc.foodaid.Surplus.SurplusAcknowledge>(
                   this, METHODID_SURPLUS_RECORD)))
           .build();
     }
@@ -139,8 +139,8 @@ public final class SurplusServiceGrpc {
 
     /**
      */
-    public void surplusRecord(grpc.foodaid.surplus.SurplusRequest request,
-        io.grpc.stub.StreamObserver<grpc.foodaid.surplus.SurplusAcknowledge> responseObserver) {
+    public void surplusRecord(grpc.foodaid.Surplus.SurplusRequest request,
+        io.grpc.stub.StreamObserver<grpc.foodaid.Surplus.SurplusAcknowledge> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSurplusRecordMethod(), getCallOptions()), request, responseObserver);
     }
@@ -165,7 +165,7 @@ public final class SurplusServiceGrpc {
 
     /**
      */
-    public grpc.foodaid.surplus.SurplusAcknowledge surplusRecord(grpc.foodaid.surplus.SurplusRequest request) {
+    public grpc.foodaid.Surplus.SurplusAcknowledge surplusRecord(grpc.foodaid.Surplus.SurplusRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSurplusRecordMethod(), getCallOptions(), request);
     }
@@ -190,8 +190,8 @@ public final class SurplusServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.foodaid.surplus.SurplusAcknowledge> surplusRecord(
-        grpc.foodaid.surplus.SurplusRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<grpc.foodaid.Surplus.SurplusAcknowledge> surplusRecord(
+        grpc.foodaid.Surplus.SurplusRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSurplusRecordMethod(), getCallOptions()), request);
     }
@@ -217,8 +217,8 @@ public final class SurplusServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_SURPLUS_RECORD:
-          serviceImpl.surplusRecord((grpc.foodaid.surplus.SurplusRequest) request,
-              (io.grpc.stub.StreamObserver<grpc.foodaid.surplus.SurplusAcknowledge>) responseObserver);
+          serviceImpl.surplusRecord((grpc.foodaid.Surplus.SurplusRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.foodaid.Surplus.SurplusAcknowledge>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -242,7 +242,7 @@ public final class SurplusServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return grpc.foodaid.surplus.SurplusImpl.getDescriptor();
+      return grpc.foodaid.Surplus.SurplusImpl.getDescriptor();
     }
 
     @java.lang.Override
