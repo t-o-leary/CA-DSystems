@@ -37,12 +37,12 @@ public final class SurplusImpl {
       "s\"\201\001\n\016SurplusRequest\022\n\n\002id\030\001 \001(\005\022\021\n\tfood" +
       "_type\030\002 \001(\t\022\025\n\rquantity_food\030\003 \001(\005\022\031\n\021nu" +
       "tritional_grade\030\004 \001(\005\022\020\n\010location\030\005 \001(\t\022" +
-      "\014\n\004depo\030\006 \001(\005\"7\n\022SurplusAcknowledge\022\020\n\010a" +
-      "ccepted\030\001 \001(\010\022\017\n\007message\030\002 \001(\t2g\n\016Surplu" +
-      "sService\022U\n\rSurplusRecord\022\037.foodaid.Surp" +
-      "lus.SurplusRequest\032#.foodaid.Surplus.Sur" +
-      "plusAcknowledgeB%\n\024grpc.foodaid.SurplusB" +
-      "\013SurplusImplP\001b\006proto3"
+      "\014\n\004depo\030\006 \001(\005\"5\n\022SurplusAcknowledge\022\016\n\006a" +
+      "ccept\030\001 \001(\010\022\017\n\007message\030\002 \001(\t2g\n\016SurplusS" +
+      "ervice\022U\n\rSurplusRecord\022\037.foodaid.Surplu" +
+      "s.SurplusRequest\032#.foodaid.Surplus.Surpl" +
+      "usAcknowledgeB%\n\024grpc.foodaid.SurplusB\013S" +
+      "urplusImplP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -59,7 +59,7 @@ public final class SurplusImpl {
     internal_static_foodaid_Surplus_SurplusAcknowledge_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foodaid_Surplus_SurplusAcknowledge_descriptor,
-        new java.lang.String[] { "Accepted", "Message", });
+        new java.lang.String[] { "Accept", "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

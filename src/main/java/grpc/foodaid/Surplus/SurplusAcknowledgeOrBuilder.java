@@ -12,10 +12,10 @@ public interface SurplusAcknowledgeOrBuilder extends
    * true if recorded
    * </pre>
    *
-   * <code>bool accepted = 1;</code>
-   * @return The accepted.
+   * <code>bool accept = 1;</code>
+   * @return The accept.
    */
-  boolean getAccepted();
+  boolean getAccept();
 
   /**
    * <pre>

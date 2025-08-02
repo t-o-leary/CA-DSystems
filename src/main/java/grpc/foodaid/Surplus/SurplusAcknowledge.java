@@ -51,7 +51,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            accepted_ = input.readBool();
+            accept_ = input.readBool();
             break;
           }
           case 18: {
@@ -94,19 +94,19 @@ private static final long serialVersionUID = 0L;
             grpc.foodaid.Surplus.SurplusAcknowledge.class, grpc.foodaid.Surplus.SurplusAcknowledge.Builder.class);
   }
 
-  public static final int ACCEPTED_FIELD_NUMBER = 1;
-  private boolean accepted_;
+  public static final int ACCEPT_FIELD_NUMBER = 1;
+  private boolean accept_;
   /**
    * <pre>
    * true if recorded
    * </pre>
    *
-   * <code>bool accepted = 1;</code>
-   * @return The accepted.
+   * <code>bool accept = 1;</code>
+   * @return The accept.
    */
   @java.lang.Override
-  public boolean getAccepted() {
-    return accepted_;
+  public boolean getAccept() {
+    return accept_;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 2;
@@ -169,8 +169,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (accepted_ != false) {
-      output.writeBool(1, accepted_);
+    if (accept_ != false) {
+      output.writeBool(1, accept_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
@@ -184,9 +184,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (accepted_ != false) {
+    if (accept_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(1, accepted_);
+        .computeBoolSize(1, accept_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
@@ -206,8 +206,8 @@ private static final long serialVersionUID = 0L;
     }
     grpc.foodaid.Surplus.SurplusAcknowledge other = (grpc.foodaid.Surplus.SurplusAcknowledge) obj;
 
-    if (getAccepted()
-        != other.getAccepted()) return false;
+    if (getAccept()
+        != other.getAccept()) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -221,9 +221,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ACCEPTED_FIELD_NUMBER;
+    hash = (37 * hash) + ACCEPT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getAccepted());
+        getAccept());
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -359,7 +359,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      accepted_ = false;
+      accept_ = false;
 
       message_ = "";
 
@@ -389,7 +389,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.foodaid.Surplus.SurplusAcknowledge buildPartial() {
       grpc.foodaid.Surplus.SurplusAcknowledge result = new grpc.foodaid.Surplus.SurplusAcknowledge(this);
-      result.accepted_ = accepted_;
+      result.accept_ = accept_;
       result.message_ = message_;
       onBuilt();
       return result;
@@ -439,8 +439,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.foodaid.Surplus.SurplusAcknowledge other) {
       if (other == grpc.foodaid.Surplus.SurplusAcknowledge.getDefaultInstance()) return this;
-      if (other.getAccepted() != false) {
-        setAccepted(other.getAccepted());
+      if (other.getAccept() != false) {
+        setAccept(other.getAccept());
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
@@ -475,31 +475,31 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean accepted_ ;
+    private boolean accept_ ;
     /**
      * <pre>
      * true if recorded
      * </pre>
      *
-     * <code>bool accepted = 1;</code>
-     * @return The accepted.
+     * <code>bool accept = 1;</code>
+     * @return The accept.
      */
     @java.lang.Override
-    public boolean getAccepted() {
-      return accepted_;
+    public boolean getAccept() {
+      return accept_;
     }
     /**
      * <pre>
      * true if recorded
      * </pre>
      *
-     * <code>bool accepted = 1;</code>
-     * @param value The accepted to set.
+     * <code>bool accept = 1;</code>
+     * @param value The accept to set.
      * @return This builder for chaining.
      */
-    public Builder setAccepted(boolean value) {
+    public Builder setAccept(boolean value) {
       
-      accepted_ = value;
+      accept_ = value;
       onChanged();
       return this;
     }
@@ -508,12 +508,12 @@ private static final long serialVersionUID = 0L;
      * true if recorded
      * </pre>
      *
-     * <code>bool accepted = 1;</code>
+     * <code>bool accept = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearAccepted() {
+    public Builder clearAccept() {
       
-      accepted_ = false;
+      accept_ = false;
       onChanged();
       return this;
     }
