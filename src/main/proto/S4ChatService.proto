@@ -2,16 +2,25 @@ syntax = "proto3";
 
 package foodaid.chat;
 
+
+
 option java_multiple_files = true;
 option java_package = "grpc.foodaid.Chat";
 option java_outer_classname = "ChatImpl";
 
 // Bi‐directional streaming RPC: live chat organisation and delivery agent
 service ChatService {
-	rpc LiveChat(stream ChatMessage) returns (stream ChatMessage);
+	rpc LiveChat(stream ChatRequest) returns (stream ChatResponse );
 }
 
-message ChatMessage {
-	int32 sender_id = 1;         // ID of message sender
+message ChatRequest {
+
+	string senderName = 1;    // name of message sender
 	string message = 2;    // chat message
 }
+
+message ChatResponse {
+	string dateTime = 1; // timestamp of message
+	string responseMessage = 2;    // chat message
+}
+

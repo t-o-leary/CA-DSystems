@@ -15,10 +15,15 @@ public final class ChatImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_foodaid_chat_ChatMessage_descriptor;
+    internal_static_foodaid_chat_ChatRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_foodaid_chat_ChatMessage_fieldAccessorTable;
+      internal_static_foodaid_chat_ChatRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_foodaid_chat_ChatResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_foodaid_chat_ChatResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -28,23 +33,30 @@ public final class ChatImpl {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023S4ChatService.proto\022\014foodaid.chat\"1\n\013C" +
-      "hatMessage\022\021\n\tsender_id\030\001 \001(\005\022\017\n\007message" +
-      "\030\002 \001(\t2S\n\013ChatService\022D\n\010LiveChat\022\031.food" +
-      "aid.chat.ChatMessage\032\031.foodaid.chat.Chat" +
-      "Message(\0010\001B\037\n\021grpc.foodaid.ChatB\010ChatIm" +
-      "plP\001b\006proto3"
+      "\n\023S4ChatService.proto\022\014foodaid.chat\"2\n\013C" +
+      "hatRequest\022\022\n\nsenderName\030\001 \001(\t\022\017\n\007messag" +
+      "e\030\002 \001(\t\"9\n\014ChatResponse\022\020\n\010dateTime\030\001 \001(" +
+      "\t\022\027\n\017responseMessage\030\002 \001(\t2T\n\013ChatServic" +
+      "e\022E\n\010LiveChat\022\031.foodaid.chat.ChatRequest" +
+      "\032\032.foodaid.chat.ChatResponse(\0010\001B\037\n\021grpc" +
+      ".foodaid.ChatB\010ChatImplP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_foodaid_chat_ChatMessage_descriptor =
+    internal_static_foodaid_chat_ChatRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_foodaid_chat_ChatMessage_fieldAccessorTable = new
+    internal_static_foodaid_chat_ChatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_foodaid_chat_ChatMessage_descriptor,
-        new java.lang.String[] { "SenderId", "Message", });
+        internal_static_foodaid_chat_ChatRequest_descriptor,
+        new java.lang.String[] { "SenderName", "Message", });
+    internal_static_foodaid_chat_ChatResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_foodaid_chat_ChatResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_foodaid_chat_ChatResponse_descriptor,
+        new java.lang.String[] { "DateTime", "ResponseMessage", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

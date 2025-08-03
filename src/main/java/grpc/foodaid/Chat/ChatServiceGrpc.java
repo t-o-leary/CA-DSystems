@@ -18,29 +18,29 @@ public final class ChatServiceGrpc {
   public static final String SERVICE_NAME = "foodaid.chat.ChatService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<grpc.foodaid.Chat.ChatMessage,
-      grpc.foodaid.Chat.ChatMessage> getLiveChatMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.foodaid.Chat.ChatRequest,
+      grpc.foodaid.Chat.ChatResponse> getLiveChatMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "LiveChat",
-      requestType = grpc.foodaid.Chat.ChatMessage.class,
-      responseType = grpc.foodaid.Chat.ChatMessage.class,
+      requestType = grpc.foodaid.Chat.ChatRequest.class,
+      responseType = grpc.foodaid.Chat.ChatResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<grpc.foodaid.Chat.ChatMessage,
-      grpc.foodaid.Chat.ChatMessage> getLiveChatMethod() {
-    io.grpc.MethodDescriptor<grpc.foodaid.Chat.ChatMessage, grpc.foodaid.Chat.ChatMessage> getLiveChatMethod;
+  public static io.grpc.MethodDescriptor<grpc.foodaid.Chat.ChatRequest,
+      grpc.foodaid.Chat.ChatResponse> getLiveChatMethod() {
+    io.grpc.MethodDescriptor<grpc.foodaid.Chat.ChatRequest, grpc.foodaid.Chat.ChatResponse> getLiveChatMethod;
     if ((getLiveChatMethod = ChatServiceGrpc.getLiveChatMethod) == null) {
       synchronized (ChatServiceGrpc.class) {
         if ((getLiveChatMethod = ChatServiceGrpc.getLiveChatMethod) == null) {
           ChatServiceGrpc.getLiveChatMethod = getLiveChatMethod =
-              io.grpc.MethodDescriptor.<grpc.foodaid.Chat.ChatMessage, grpc.foodaid.Chat.ChatMessage>newBuilder()
+              io.grpc.MethodDescriptor.<grpc.foodaid.Chat.ChatRequest, grpc.foodaid.Chat.ChatResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "LiveChat"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.foodaid.Chat.ChatMessage.getDefaultInstance()))
+                  grpc.foodaid.Chat.ChatRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.foodaid.Chat.ChatMessage.getDefaultInstance()))
+                  grpc.foodaid.Chat.ChatResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ChatServiceMethodDescriptorSupplier("LiveChat"))
               .build();
         }
@@ -102,8 +102,8 @@ public final class ChatServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatMessage> liveChat(
-        io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatMessage> responseObserver) {
+    public io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatRequest> liveChat(
+        io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatResponse> responseObserver) {
       return io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall(getLiveChatMethod(), responseObserver);
     }
 
@@ -113,8 +113,8 @@ public final class ChatServiceGrpc {
             getLiveChatMethod(),
             io.grpc.stub.ServerCalls.asyncBidiStreamingCall(
               new MethodHandlers<
-                grpc.foodaid.Chat.ChatMessage,
-                grpc.foodaid.Chat.ChatMessage>(
+                grpc.foodaid.Chat.ChatRequest,
+                grpc.foodaid.Chat.ChatResponse>(
                   this, METHODID_LIVE_CHAT)))
           .build();
     }
@@ -139,8 +139,8 @@ public final class ChatServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatMessage> liveChat(
-        io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatMessage> responseObserver) {
+    public io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatRequest> liveChat(
+        io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatResponse> responseObserver) {
       return io.grpc.stub.ClientCalls.asyncBidiStreamingCall(
           getChannel().newCall(getLiveChatMethod(), getCallOptions()), responseObserver);
     }
@@ -213,7 +213,7 @@ public final class ChatServiceGrpc {
       switch (methodId) {
         case METHODID_LIVE_CHAT:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.liveChat(
-              (io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatMessage>) responseObserver);
+              (io.grpc.stub.StreamObserver<grpc.foodaid.Chat.ChatResponse>) responseObserver);
         default:
           throw new AssertionError();
       }

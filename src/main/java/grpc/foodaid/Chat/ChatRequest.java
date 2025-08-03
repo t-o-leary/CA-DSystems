@@ -4,18 +4,19 @@
 package grpc.foodaid.Chat;
 
 /**
- * Protobuf type {@code foodaid.chat.ChatMessage}
+ * Protobuf type {@code foodaid.chat.ChatRequest}
  */
-public final class ChatMessage extends
+public final class ChatRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:foodaid.chat.ChatMessage)
-    ChatMessageOrBuilder {
+    // @@protoc_insertion_point(message_implements:foodaid.chat.ChatRequest)
+    ChatRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ChatMessage.newBuilder() to construct.
-  private ChatMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ChatRequest.newBuilder() to construct.
+  private ChatRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ChatMessage() {
+  private ChatRequest() {
+    senderName_ = "";
     message_ = "";
   }
 
@@ -23,7 +24,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ChatMessage();
+    return new ChatRequest();
   }
 
   @java.lang.Override
@@ -31,7 +32,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ChatMessage(
+  private ChatRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -49,9 +50,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            senderId_ = input.readInt32();
+            senderName_ = s;
             break;
           }
           case 18: {
@@ -83,30 +85,61 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
+    return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_fieldAccessorTable
+    return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            grpc.foodaid.Chat.ChatMessage.class, grpc.foodaid.Chat.ChatMessage.Builder.class);
+            grpc.foodaid.Chat.ChatRequest.class, grpc.foodaid.Chat.ChatRequest.Builder.class);
   }
 
-  public static final int SENDER_ID_FIELD_NUMBER = 1;
-  private int senderId_;
+  public static final int SENDERNAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object senderName_;
   /**
    * <pre>
-   * ID of message sender
+   * name of message sender
    * </pre>
    *
-   * <code>int32 sender_id = 1;</code>
-   * @return The senderId.
+   * <code>string senderName = 1;</code>
+   * @return The senderName.
    */
   @java.lang.Override
-  public int getSenderId() {
-    return senderId_;
+  public java.lang.String getSenderName() {
+    java.lang.Object ref = senderName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      senderName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * name of message sender
+   * </pre>
+   *
+   * <code>string senderName = 1;</code>
+   * @return The bytes for senderName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getSenderNameBytes() {
+    java.lang.Object ref = senderName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      senderName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 2;
@@ -169,8 +202,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (senderId_ != 0) {
-      output.writeInt32(1, senderId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(senderName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, senderName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
@@ -184,9 +217,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (senderId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, senderId_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(senderName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, senderName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
@@ -201,13 +233,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof grpc.foodaid.Chat.ChatMessage)) {
+    if (!(obj instanceof grpc.foodaid.Chat.ChatRequest)) {
       return super.equals(obj);
     }
-    grpc.foodaid.Chat.ChatMessage other = (grpc.foodaid.Chat.ChatMessage) obj;
+    grpc.foodaid.Chat.ChatRequest other = (grpc.foodaid.Chat.ChatRequest) obj;
 
-    if (getSenderId()
-        != other.getSenderId()) return false;
+    if (!getSenderName()
+        .equals(other.getSenderName())) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -221,8 +253,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getSenderId();
+    hash = (37 * hash) + SENDERNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getSenderName().hashCode();
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -230,69 +262,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(byte[] data)
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(java.io.InputStream input)
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseDelimitedFrom(java.io.InputStream input)
+  public static grpc.foodaid.Chat.ChatRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseDelimitedFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.foodaid.Chat.ChatMessage parseFrom(
+  public static grpc.foodaid.Chat.ChatRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -305,7 +337,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(grpc.foodaid.Chat.ChatMessage prototype) {
+  public static Builder newBuilder(grpc.foodaid.Chat.ChatRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -321,26 +353,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code foodaid.chat.ChatMessage}
+   * Protobuf type {@code foodaid.chat.ChatRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:foodaid.chat.ChatMessage)
-      grpc.foodaid.Chat.ChatMessageOrBuilder {
+      // @@protoc_insertion_point(builder_implements:foodaid.chat.ChatRequest)
+      grpc.foodaid.Chat.ChatRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
+      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_fieldAccessorTable
+      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              grpc.foodaid.Chat.ChatMessage.class, grpc.foodaid.Chat.ChatMessage.Builder.class);
+              grpc.foodaid.Chat.ChatRequest.class, grpc.foodaid.Chat.ChatRequest.Builder.class);
     }
 
-    // Construct using grpc.foodaid.Chat.ChatMessage.newBuilder()
+    // Construct using grpc.foodaid.Chat.ChatRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -358,7 +390,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      senderId_ = 0;
+      senderName_ = "";
 
       message_ = "";
 
@@ -368,17 +400,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatMessage_descriptor;
+      return grpc.foodaid.Chat.ChatImpl.internal_static_foodaid_chat_ChatRequest_descriptor;
     }
 
     @java.lang.Override
-    public grpc.foodaid.Chat.ChatMessage getDefaultInstanceForType() {
-      return grpc.foodaid.Chat.ChatMessage.getDefaultInstance();
+    public grpc.foodaid.Chat.ChatRequest getDefaultInstanceForType() {
+      return grpc.foodaid.Chat.ChatRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public grpc.foodaid.Chat.ChatMessage build() {
-      grpc.foodaid.Chat.ChatMessage result = buildPartial();
+    public grpc.foodaid.Chat.ChatRequest build() {
+      grpc.foodaid.Chat.ChatRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -386,9 +418,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public grpc.foodaid.Chat.ChatMessage buildPartial() {
-      grpc.foodaid.Chat.ChatMessage result = new grpc.foodaid.Chat.ChatMessage(this);
-      result.senderId_ = senderId_;
+    public grpc.foodaid.Chat.ChatRequest buildPartial() {
+      grpc.foodaid.Chat.ChatRequest result = new grpc.foodaid.Chat.ChatRequest(this);
+      result.senderName_ = senderName_;
       result.message_ = message_;
       onBuilt();
       return result;
@@ -428,18 +460,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof grpc.foodaid.Chat.ChatMessage) {
-        return mergeFrom((grpc.foodaid.Chat.ChatMessage)other);
+      if (other instanceof grpc.foodaid.Chat.ChatRequest) {
+        return mergeFrom((grpc.foodaid.Chat.ChatRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(grpc.foodaid.Chat.ChatMessage other) {
-      if (other == grpc.foodaid.Chat.ChatMessage.getDefaultInstance()) return this;
-      if (other.getSenderId() != 0) {
-        setSenderId(other.getSenderId());
+    public Builder mergeFrom(grpc.foodaid.Chat.ChatRequest other) {
+      if (other == grpc.foodaid.Chat.ChatRequest.getDefaultInstance()) return this;
+      if (!other.getSenderName().isEmpty()) {
+        senderName_ = other.senderName_;
+        onChanged();
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
@@ -460,11 +493,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      grpc.foodaid.Chat.ChatMessage parsedMessage = null;
+      grpc.foodaid.Chat.ChatRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (grpc.foodaid.Chat.ChatMessage) e.getUnfinishedMessage();
+        parsedMessage = (grpc.foodaid.Chat.ChatRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -474,45 +507,98 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int senderId_ ;
+    private java.lang.Object senderName_ = "";
     /**
      * <pre>
-     * ID of message sender
+     * name of message sender
      * </pre>
      *
-     * <code>int32 sender_id = 1;</code>
-     * @return The senderId.
+     * <code>string senderName = 1;</code>
+     * @return The senderName.
      */
-    @java.lang.Override
-    public int getSenderId() {
-      return senderId_;
+    public java.lang.String getSenderName() {
+      java.lang.Object ref = senderName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        senderName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
      * <pre>
-     * ID of message sender
+     * name of message sender
      * </pre>
      *
-     * <code>int32 sender_id = 1;</code>
-     * @param value The senderId to set.
+     * <code>string senderName = 1;</code>
+     * @return The bytes for senderName.
+     */
+    public com.google.protobuf.ByteString
+        getSenderNameBytes() {
+      java.lang.Object ref = senderName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        senderName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * name of message sender
+     * </pre>
+     *
+     * <code>string senderName = 1;</code>
+     * @param value The senderName to set.
      * @return This builder for chaining.
      */
-    public Builder setSenderId(int value) {
-      
-      senderId_ = value;
+    public Builder setSenderName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      senderName_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * ID of message sender
+     * name of message sender
      * </pre>
      *
-     * <code>int32 sender_id = 1;</code>
+     * <code>string senderName = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearSenderId() {
+    public Builder clearSenderName() {
       
-      senderId_ = 0;
+      senderName_ = getDefaultInstance().getSenderName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * name of message sender
+     * </pre>
+     *
+     * <code>string senderName = 1;</code>
+     * @param value The bytes for senderName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSenderNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      senderName_ = value;
       onChanged();
       return this;
     }
@@ -625,41 +711,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:foodaid.chat.ChatMessage)
+    // @@protoc_insertion_point(builder_scope:foodaid.chat.ChatRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:foodaid.chat.ChatMessage)
-  private static final grpc.foodaid.Chat.ChatMessage DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:foodaid.chat.ChatRequest)
+  private static final grpc.foodaid.Chat.ChatRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new grpc.foodaid.Chat.ChatMessage();
+    DEFAULT_INSTANCE = new grpc.foodaid.Chat.ChatRequest();
   }
 
-  public static grpc.foodaid.Chat.ChatMessage getDefaultInstance() {
+  public static grpc.foodaid.Chat.ChatRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ChatMessage>
-      PARSER = new com.google.protobuf.AbstractParser<ChatMessage>() {
+  private static final com.google.protobuf.Parser<ChatRequest>
+      PARSER = new com.google.protobuf.AbstractParser<ChatRequest>() {
     @java.lang.Override
-    public ChatMessage parsePartialFrom(
+    public ChatRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ChatMessage(input, extensionRegistry);
+      return new ChatRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ChatMessage> parser() {
+  public static com.google.protobuf.Parser<ChatRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ChatMessage> getParserForType() {
+  public com.google.protobuf.Parser<ChatRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public grpc.foodaid.Chat.ChatMessage getDefaultInstanceForType() {
+  public grpc.foodaid.Chat.ChatRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

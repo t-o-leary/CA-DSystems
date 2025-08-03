@@ -3,19 +3,29 @@
 
 package grpc.foodaid.Chat;
 
-public interface ChatMessageOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:foodaid.chat.ChatMessage)
+public interface ChatRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:foodaid.chat.ChatRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
    * <pre>
-   * ID of message sender
+   * name of message sender
    * </pre>
    *
-   * <code>int32 sender_id = 1;</code>
-   * @return The senderId.
+   * <code>string senderName = 1;</code>
+   * @return The senderName.
    */
-  int getSenderId();
+  java.lang.String getSenderName();
+  /**
+   * <pre>
+   * name of message sender
+   * </pre>
+   *
+   * <code>string senderName = 1;</code>
+   * @return The bytes for senderName.
+   */
+  com.google.protobuf.ByteString
+      getSenderNameBytes();
 
   /**
    * <pre>
