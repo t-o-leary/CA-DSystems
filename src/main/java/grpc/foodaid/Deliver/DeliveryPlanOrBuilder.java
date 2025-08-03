@@ -77,4 +77,68 @@ public interface DeliveryPlanOrBuilder extends
    */
   com.google.protobuf.ByteString
       getRouteBytes(int index);
+
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  java.util.List<grpc.foodaid.Deliver.DeliveryOrder> 
+      getOrdersList();
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  grpc.foodaid.Deliver.DeliveryOrder getOrders(int index);
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  int getOrdersCount();
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  java.util.List<? extends grpc.foodaid.Deliver.DeliveryOrderOrBuilder> 
+      getOrdersOrBuilderList();
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  grpc.foodaid.Deliver.DeliveryOrderOrBuilder getOrdersOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Add this for a status message
+   * </pre>
+   *
+   * <code>string status = 5;</code>
+   * @return The status.
+   */
+  java.lang.String getStatus();
+  /**
+   * <pre>
+   * Add this for a status message
+   * </pre>
+   *
+   * <code>string status = 5;</code>
+   * @return The bytes for status.
+   */
+  com.google.protobuf.ByteString
+      getStatusBytes();
 }

@@ -36,13 +36,15 @@ public final class DeliverImpl {
       "\n\027S3DeliveryService.proto\022\020foodaid.deliv" +
       "ery\"m\n\rDeliveryOrder\022\n\n\002id\030\001 \001(\005\022\021\n\treci" +
       "pient\030\002 \001(\t\022\030\n\020delivery_address\030\003 \001(\t\022\021\n" +
-      "\tfood_type\030\004 \001(\t\022\020\n\010quantity\030\005 \001(\005\"O\n\014De" +
-      "liveryPlan\022\030\n\020total_deliveries\030\001 \001(\005\022\026\n\016" +
-      "delivery_agent\030\002 \001(\t\022\r\n\005route\030\003 \003(\t2h\n\017D" +
-      "eliveryService\022U\n\020SubmitDeliveries\022\037.foo" +
-      "daid.delivery.DeliveryOrder\032\036.foodaid.de" +
-      "livery.DeliveryPlan(\001B%\n\024grpc.foodaid.De" +
-      "liverB\013DeliverImplP\001b\006proto3"
+      "\tfood_type\030\004 \001(\t\022\020\n\010quantity\030\005 \001(\005\"\220\001\n\014D" +
+      "eliveryPlan\022\030\n\020total_deliveries\030\001 \001(\005\022\026\n" +
+      "\016delivery_agent\030\002 \001(\t\022\r\n\005route\030\003 \003(\t\022/\n\006" +
+      "orders\030\004 \003(\0132\037.foodaid.delivery.Delivery" +
+      "Order\022\016\n\006status\030\005 \001(\t2h\n\017DeliveryService" +
+      "\022U\n\020submitDeliveries\022\037.foodaid.delivery." +
+      "DeliveryOrder\032\036.foodaid.delivery.Deliver" +
+      "yPlan(\001B%\n\024grpc.foodaid.DeliverB\013Deliver" +
+      "ImplP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -59,7 +61,7 @@ public final class DeliverImpl {
     internal_static_foodaid_delivery_DeliveryPlan_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foodaid_delivery_DeliveryPlan_descriptor,
-        new java.lang.String[] { "TotalDeliveries", "DeliveryAgent", "Route", });
+        new java.lang.String[] { "TotalDeliveries", "DeliveryAgent", "Route", "Orders", "Status", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

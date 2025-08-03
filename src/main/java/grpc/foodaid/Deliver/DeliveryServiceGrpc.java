@@ -22,7 +22,7 @@ public final class DeliveryServiceGrpc {
       grpc.foodaid.Deliver.DeliveryPlan> getSubmitDeliveriesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "SubmitDeliveries",
+      fullMethodName = SERVICE_NAME + '/' + "submitDeliveries",
       requestType = grpc.foodaid.Deliver.DeliveryOrder.class,
       responseType = grpc.foodaid.Deliver.DeliveryPlan.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
@@ -35,13 +35,13 @@ public final class DeliveryServiceGrpc {
           DeliveryServiceGrpc.getSubmitDeliveriesMethod = getSubmitDeliveriesMethod =
               io.grpc.MethodDescriptor.<grpc.foodaid.Deliver.DeliveryOrder, grpc.foodaid.Deliver.DeliveryPlan>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SubmitDeliveries"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "submitDeliveries"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.foodaid.Deliver.DeliveryOrder.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   grpc.foodaid.Deliver.DeliveryPlan.getDefaultInstance()))
-              .setSchemaDescriptor(new DeliveryServiceMethodDescriptorSupplier("SubmitDeliveries"))
+              .setSchemaDescriptor(new DeliveryServiceMethodDescriptorSupplier("submitDeliveries"))
               .build();
         }
       }

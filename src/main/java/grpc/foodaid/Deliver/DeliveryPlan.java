@@ -18,6 +18,8 @@ private static final long serialVersionUID = 0L;
   private DeliveryPlan() {
     deliveryAgent_ = "";
     route_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    orders_ = java.util.Collections.emptyList();
+    status_ = "";
   }
 
   @java.lang.Override
@@ -71,6 +73,21 @@ private static final long serialVersionUID = 0L;
             route_.add(s);
             break;
           }
+          case 34: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              orders_ = new java.util.ArrayList<grpc.foodaid.Deliver.DeliveryOrder>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            orders_.add(
+                input.readMessage(grpc.foodaid.Deliver.DeliveryOrder.parser(), extensionRegistry));
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            status_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -90,6 +107,9 @@ private static final long serialVersionUID = 0L;
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
         route_ = route_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        orders_ = java.util.Collections.unmodifiableList(orders_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -220,6 +240,112 @@ private static final long serialVersionUID = 0L;
     return route_.getByteString(index);
   }
 
+  public static final int ORDERS_FIELD_NUMBER = 4;
+  private java.util.List<grpc.foodaid.Deliver.DeliveryOrder> orders_;
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  @java.lang.Override
+  public java.util.List<grpc.foodaid.Deliver.DeliveryOrder> getOrdersList() {
+    return orders_;
+  }
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends grpc.foodaid.Deliver.DeliveryOrderOrBuilder> 
+      getOrdersOrBuilderList() {
+    return orders_;
+  }
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  @java.lang.Override
+  public int getOrdersCount() {
+    return orders_.size();
+  }
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  @java.lang.Override
+  public grpc.foodaid.Deliver.DeliveryOrder getOrders(int index) {
+    return orders_.get(index);
+  }
+  /**
+   * <pre>
+   * Add this if you want to return the orders
+   * </pre>
+   *
+   * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+   */
+  @java.lang.Override
+  public grpc.foodaid.Deliver.DeliveryOrderOrBuilder getOrdersOrBuilder(
+      int index) {
+    return orders_.get(index);
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 5;
+  private volatile java.lang.Object status_;
+  /**
+   * <pre>
+   * Add this for a status message
+   * </pre>
+   *
+   * <code>string status = 5;</code>
+   * @return The status.
+   */
+  @java.lang.Override
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Add this for a status message
+   * </pre>
+   *
+   * <code>string status = 5;</code>
+   * @return The bytes for status.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -242,6 +368,12 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < route_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, route_.getRaw(i));
+    }
+    for (int i = 0; i < orders_.size(); i++) {
+      output.writeMessage(4, orders_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
     }
     unknownFields.writeTo(output);
   }
@@ -267,6 +399,13 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getRouteList().size();
     }
+    for (int i = 0; i < orders_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, orders_.get(i));
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -288,6 +427,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDeliveryAgent())) return false;
     if (!getRouteList()
         .equals(other.getRouteList())) return false;
+    if (!getOrdersList()
+        .equals(other.getOrdersList())) return false;
+    if (!getStatus()
+        .equals(other.getStatus())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -307,6 +450,12 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROUTE_FIELD_NUMBER;
       hash = (53 * hash) + getRouteList().hashCode();
     }
+    if (getOrdersCount() > 0) {
+      hash = (37 * hash) + ORDERS_FIELD_NUMBER;
+      hash = (53 * hash) + getOrdersList().hashCode();
+    }
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -435,6 +584,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getOrdersFieldBuilder();
       }
     }
     @java.lang.Override
@@ -446,6 +596,14 @@ private static final long serialVersionUID = 0L;
 
       route_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
+      if (ordersBuilder_ == null) {
+        orders_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        ordersBuilder_.clear();
+      }
+      status_ = "";
+
       return this;
     }
 
@@ -480,6 +638,16 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.route_ = route_;
+      if (ordersBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          orders_ = java.util.Collections.unmodifiableList(orders_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.orders_ = orders_;
+      } else {
+        result.orders_ = ordersBuilder_.build();
+      }
+      result.status_ = status_;
       onBuilt();
       return result;
     }
@@ -543,6 +711,36 @@ private static final long serialVersionUID = 0L;
           ensureRouteIsMutable();
           route_.addAll(other.route_);
         }
+        onChanged();
+      }
+      if (ordersBuilder_ == null) {
+        if (!other.orders_.isEmpty()) {
+          if (orders_.isEmpty()) {
+            orders_ = other.orders_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureOrdersIsMutable();
+            orders_.addAll(other.orders_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.orders_.isEmpty()) {
+          if (ordersBuilder_.isEmpty()) {
+            ordersBuilder_.dispose();
+            ordersBuilder_ = null;
+            orders_ = other.orders_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            ordersBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getOrdersFieldBuilder() : null;
+          } else {
+            ordersBuilder_.addAllMessages(other.orders_);
+          }
+        }
+      }
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -856,6 +1054,414 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       ensureRouteIsMutable();
       route_.add(value);
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<grpc.foodaid.Deliver.DeliveryOrder> orders_ =
+      java.util.Collections.emptyList();
+    private void ensureOrdersIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        orders_ = new java.util.ArrayList<grpc.foodaid.Deliver.DeliveryOrder>(orders_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        grpc.foodaid.Deliver.DeliveryOrder, grpc.foodaid.Deliver.DeliveryOrder.Builder, grpc.foodaid.Deliver.DeliveryOrderOrBuilder> ordersBuilder_;
+
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public java.util.List<grpc.foodaid.Deliver.DeliveryOrder> getOrdersList() {
+      if (ordersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(orders_);
+      } else {
+        return ordersBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public int getOrdersCount() {
+      if (ordersBuilder_ == null) {
+        return orders_.size();
+      } else {
+        return ordersBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public grpc.foodaid.Deliver.DeliveryOrder getOrders(int index) {
+      if (ordersBuilder_ == null) {
+        return orders_.get(index);
+      } else {
+        return ordersBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder setOrders(
+        int index, grpc.foodaid.Deliver.DeliveryOrder value) {
+      if (ordersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOrdersIsMutable();
+        orders_.set(index, value);
+        onChanged();
+      } else {
+        ordersBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder setOrders(
+        int index, grpc.foodaid.Deliver.DeliveryOrder.Builder builderForValue) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        ordersBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder addOrders(grpc.foodaid.Deliver.DeliveryOrder value) {
+      if (ordersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOrdersIsMutable();
+        orders_.add(value);
+        onChanged();
+      } else {
+        ordersBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder addOrders(
+        int index, grpc.foodaid.Deliver.DeliveryOrder value) {
+      if (ordersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOrdersIsMutable();
+        orders_.add(index, value);
+        onChanged();
+      } else {
+        ordersBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder addOrders(
+        grpc.foodaid.Deliver.DeliveryOrder.Builder builderForValue) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.add(builderForValue.build());
+        onChanged();
+      } else {
+        ordersBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder addOrders(
+        int index, grpc.foodaid.Deliver.DeliveryOrder.Builder builderForValue) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        ordersBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder addAllOrders(
+        java.lang.Iterable<? extends grpc.foodaid.Deliver.DeliveryOrder> values) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, orders_);
+        onChanged();
+      } else {
+        ordersBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder clearOrders() {
+      if (ordersBuilder_ == null) {
+        orders_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        ordersBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public Builder removeOrders(int index) {
+      if (ordersBuilder_ == null) {
+        ensureOrdersIsMutable();
+        orders_.remove(index);
+        onChanged();
+      } else {
+        ordersBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public grpc.foodaid.Deliver.DeliveryOrder.Builder getOrdersBuilder(
+        int index) {
+      return getOrdersFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public grpc.foodaid.Deliver.DeliveryOrderOrBuilder getOrdersOrBuilder(
+        int index) {
+      if (ordersBuilder_ == null) {
+        return orders_.get(index);  } else {
+        return ordersBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public java.util.List<? extends grpc.foodaid.Deliver.DeliveryOrderOrBuilder> 
+         getOrdersOrBuilderList() {
+      if (ordersBuilder_ != null) {
+        return ordersBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(orders_);
+      }
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public grpc.foodaid.Deliver.DeliveryOrder.Builder addOrdersBuilder() {
+      return getOrdersFieldBuilder().addBuilder(
+          grpc.foodaid.Deliver.DeliveryOrder.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public grpc.foodaid.Deliver.DeliveryOrder.Builder addOrdersBuilder(
+        int index) {
+      return getOrdersFieldBuilder().addBuilder(
+          index, grpc.foodaid.Deliver.DeliveryOrder.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Add this if you want to return the orders
+     * </pre>
+     *
+     * <code>repeated .foodaid.delivery.DeliveryOrder orders = 4;</code>
+     */
+    public java.util.List<grpc.foodaid.Deliver.DeliveryOrder.Builder> 
+         getOrdersBuilderList() {
+      return getOrdersFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        grpc.foodaid.Deliver.DeliveryOrder, grpc.foodaid.Deliver.DeliveryOrder.Builder, grpc.foodaid.Deliver.DeliveryOrderOrBuilder> 
+        getOrdersFieldBuilder() {
+      if (ordersBuilder_ == null) {
+        ordersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            grpc.foodaid.Deliver.DeliveryOrder, grpc.foodaid.Deliver.DeliveryOrder.Builder, grpc.foodaid.Deliver.DeliveryOrderOrBuilder>(
+                orders_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        orders_ = null;
+      }
+      return ordersBuilder_;
+    }
+
+    private java.lang.Object status_ = "";
+    /**
+     * <pre>
+     * Add this for a status message
+     * </pre>
+     *
+     * <code>string status = 5;</code>
+     * @return The status.
+     */
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Add this for a status message
+     * </pre>
+     *
+     * <code>string status = 5;</code>
+     * @return The bytes for status.
+     */
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Add this for a status message
+     * </pre>
+     *
+     * <code>string status = 5;</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this for a status message
+     * </pre>
+     *
+     * <code>string status = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Add this for a status message
+     * </pre>
+     *
+     * <code>string status = 5;</code>
+     * @param value The bytes for status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
       onChanged();
       return this;
     }

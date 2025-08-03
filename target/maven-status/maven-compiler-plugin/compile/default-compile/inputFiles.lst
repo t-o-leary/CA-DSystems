@@ -6,8 +6,10 @@ C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Order\OrderRequestOrBuilder.java
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Surplus\SurplusRequestOrBuilder.java
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Deliver\DeliverImpl.java
+C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Deliver\DeliveryServer.java
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Order\OrderServiceGrpc.java
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Surplus\SurplusImpl.java
+C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Deliver\DeliveryClient.java
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Surplus\SurplusServiceGrpc.java
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Surplus\SurplusAcknowledge.java
 C:\Users\kirst\OneDrive - National College of Ireland\Documents\NCI\Distribution Systems\CA-Distribution-Systems -310725\src\main\java\grpc\foodaid\Deliver\DeliveryServiceGrpc.java
