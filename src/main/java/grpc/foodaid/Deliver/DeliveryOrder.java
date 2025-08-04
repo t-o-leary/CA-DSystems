@@ -51,11 +51,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
-
-            id_ = input.readInt32();
-            break;
-          }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -113,26 +108,11 @@ private static final long serialVersionUID = 0L;
             grpc.foodaid.Deliver.DeliveryOrder.class, grpc.foodaid.Deliver.DeliveryOrder.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
-  /**
-   * <pre>
-   * unique identifier
-   * </pre>
-   *
-   * <code>int32 id = 1;</code>
-   * @return The id.
-   */
-  @java.lang.Override
-  public int getId() {
-    return id_;
-  }
-
   public static final int RECIPIENT_FIELD_NUMBER = 2;
   private volatile java.lang.Object recipient_;
   /**
    * <pre>
-   * recipient identifier
+   * int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>
@@ -153,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * recipient identifier
+   * int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>
@@ -295,9 +275,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0) {
-      output.writeInt32(1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, recipient_);
     }
@@ -319,10 +296,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, recipient_);
     }
@@ -351,8 +324,6 @@ private static final long serialVersionUID = 0L;
     }
     grpc.foodaid.Deliver.DeliveryOrder other = (grpc.foodaid.Deliver.DeliveryOrder) obj;
 
-    if (getId()
-        != other.getId()) return false;
     if (!getRecipient()
         .equals(other.getRecipient())) return false;
     if (!getDeliveryAddress()
@@ -372,8 +343,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
     hash = (37 * hash) + RECIPIENT_FIELD_NUMBER;
     hash = (53 * hash) + getRecipient().hashCode();
     hash = (37 * hash) + DELIVERY_ADDRESS_FIELD_NUMBER;
@@ -515,8 +484,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0;
-
       recipient_ = "";
 
       deliveryAddress_ = "";
@@ -551,7 +518,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.foodaid.Deliver.DeliveryOrder buildPartial() {
       grpc.foodaid.Deliver.DeliveryOrder result = new grpc.foodaid.Deliver.DeliveryOrder(this);
-      result.id_ = id_;
       result.recipient_ = recipient_;
       result.deliveryAddress_ = deliveryAddress_;
       result.foodType_ = foodType_;
@@ -604,9 +570,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.foodaid.Deliver.DeliveryOrder other) {
       if (other == grpc.foodaid.Deliver.DeliveryOrder.getDefaultInstance()) return this;
-      if (other.getId() != 0) {
-        setId(other.getId());
-      }
       if (!other.getRecipient().isEmpty()) {
         recipient_ = other.recipient_;
         onChanged();
@@ -651,53 +614,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
-    /**
-     * <pre>
-     * unique identifier
-     * </pre>
-     *
-     * <code>int32 id = 1;</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public int getId() {
-      return id_;
-    }
-    /**
-     * <pre>
-     * unique identifier
-     * </pre>
-     *
-     * <code>int32 id = 1;</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(int value) {
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * unique identifier
-     * </pre>
-     *
-     * <code>int32 id = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      
-      id_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object recipient_ = "";
     /**
      * <pre>
-     * recipient identifier
+     * int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -717,7 +637,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     * int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -738,7 +658,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     * int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -757,7 +677,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     * int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -771,7 +691,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     * int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>

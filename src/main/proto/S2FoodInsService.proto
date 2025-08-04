@@ -17,7 +17,7 @@ service OrderService {
 
 // Request a food order
 message OrderRequest {
-	int32 order_id = 1;          // unique order identifier
+	//int32 order_id = 1;          // unique order identifier
 	string recipient = 2;        // recipient identifier
 	string food_type = 3;        // ordered type of food
 	int32 quantity = 4;          // quantity requested

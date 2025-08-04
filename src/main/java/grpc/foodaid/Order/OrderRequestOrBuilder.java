@@ -9,17 +9,7 @@ public interface OrderRequestOrBuilder extends
 
   /**
    * <pre>
-   * unique order identifier
-   * </pre>
-   *
-   * <code>int32 order_id = 1;</code>
-   * @return The orderId.
-   */
-  int getOrderId();
-
-  /**
-   * <pre>
-   * recipient identifier
+   *int32 order_id = 1;          // unique order identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>
@@ -28,7 +18,7 @@ public interface OrderRequestOrBuilder extends
   java.lang.String getRecipient();
   /**
    * <pre>
-   * recipient identifier
+   *int32 order_id = 1;          // unique order identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>

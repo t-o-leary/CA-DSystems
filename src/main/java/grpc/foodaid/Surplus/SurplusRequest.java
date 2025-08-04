@@ -50,11 +50,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
-
-            id_ = input.readInt32();
-            break;
-          }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -116,26 +111,11 @@ private static final long serialVersionUID = 0L;
             grpc.foodaid.Surplus.SurplusRequest.class, grpc.foodaid.Surplus.SurplusRequest.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
-  /**
-   * <pre>
-   * unique identifier
-   * </pre>
-   *
-   * <code>int32 id = 1;</code>
-   * @return The id.
-   */
-  @java.lang.Override
-  public int getId() {
-    return id_;
-  }
-
   public static final int FOOD_TYPE_FIELD_NUMBER = 2;
   private volatile java.lang.Object foodType_;
   /**
    * <pre>
-   * type of food that is in surplus
+   *int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string food_type = 2;</code>
@@ -156,7 +136,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * type of food that is in surplus
+   *int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string food_type = 2;</code>
@@ -282,9 +262,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0) {
-      output.writeInt32(1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(foodType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, foodType_);
     }
@@ -309,10 +286,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, id_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(foodType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, foodType_);
     }
@@ -346,8 +319,6 @@ private static final long serialVersionUID = 0L;
     }
     grpc.foodaid.Surplus.SurplusRequest other = (grpc.foodaid.Surplus.SurplusRequest) obj;
 
-    if (getId()
-        != other.getId()) return false;
     if (!getFoodType()
         .equals(other.getFoodType())) return false;
     if (getQuantityFood()
@@ -369,8 +340,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
     hash = (37 * hash) + FOOD_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getFoodType().hashCode();
     hash = (37 * hash) + QUANTITY_FOOD_FIELD_NUMBER;
@@ -514,8 +483,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0;
-
       foodType_ = "";
 
       quantityFood_ = 0;
@@ -552,7 +519,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.foodaid.Surplus.SurplusRequest buildPartial() {
       grpc.foodaid.Surplus.SurplusRequest result = new grpc.foodaid.Surplus.SurplusRequest(this);
-      result.id_ = id_;
       result.foodType_ = foodType_;
       result.quantityFood_ = quantityFood_;
       result.nutritionalGrade_ = nutritionalGrade_;
@@ -606,9 +572,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.foodaid.Surplus.SurplusRequest other) {
       if (other == grpc.foodaid.Surplus.SurplusRequest.getDefaultInstance()) return this;
-      if (other.getId() != 0) {
-        setId(other.getId());
-      }
       if (!other.getFoodType().isEmpty()) {
         foodType_ = other.foodType_;
         onChanged();
@@ -655,53 +618,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
-    /**
-     * <pre>
-     * unique identifier
-     * </pre>
-     *
-     * <code>int32 id = 1;</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public int getId() {
-      return id_;
-    }
-    /**
-     * <pre>
-     * unique identifier
-     * </pre>
-     *
-     * <code>int32 id = 1;</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(int value) {
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * unique identifier
-     * </pre>
-     *
-     * <code>int32 id = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      
-      id_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object foodType_ = "";
     /**
      * <pre>
-     * type of food that is in surplus
+     *int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string food_type = 2;</code>
@@ -721,7 +641,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * type of food that is in surplus
+     *int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string food_type = 2;</code>
@@ -742,7 +662,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * type of food that is in surplus
+     *int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string food_type = 2;</code>
@@ -761,7 +681,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * type of food that is in surplus
+     *int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string food_type = 2;</code>
@@ -775,7 +695,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * type of food that is in surplus
+     *int32 id = 1;                // unique identifier
      * </pre>
      *
      * <code>string food_type = 2;</code>

@@ -20,7 +20,7 @@ message ChatRequest {
 }
 
 message ChatResponse {
-	string dateTime = 1; // timestamp of message
+	string senderName = 1;    // name of message sender
 	string responseMessage = 2;    // chat message
 }
 

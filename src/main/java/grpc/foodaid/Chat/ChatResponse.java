@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ChatResponse() {
-    dateTime_ = "";
+    senderName_ = "";
     responseMessage_ = "";
   }
 
@@ -53,7 +53,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            dateTime_ = s;
+            senderName_ = s;
             break;
           }
           case 18: {
@@ -96,46 +96,46 @@ private static final long serialVersionUID = 0L;
             grpc.foodaid.Chat.ChatResponse.class, grpc.foodaid.Chat.ChatResponse.Builder.class);
   }
 
-  public static final int DATETIME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object dateTime_;
+  public static final int SENDERNAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object senderName_;
   /**
    * <pre>
-   * timestamp of message
+   * name of message sender
    * </pre>
    *
-   * <code>string dateTime = 1;</code>
-   * @return The dateTime.
+   * <code>string senderName = 1;</code>
+   * @return The senderName.
    */
   @java.lang.Override
-  public java.lang.String getDateTime() {
-    java.lang.Object ref = dateTime_;
+  public java.lang.String getSenderName() {
+    java.lang.Object ref = senderName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      dateTime_ = s;
+      senderName_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * timestamp of message
+   * name of message sender
    * </pre>
    *
-   * <code>string dateTime = 1;</code>
-   * @return The bytes for dateTime.
+   * <code>string senderName = 1;</code>
+   * @return The bytes for senderName.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getDateTimeBytes() {
-    java.lang.Object ref = dateTime_;
+      getSenderNameBytes() {
+    java.lang.Object ref = senderName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      dateTime_ = b;
+      senderName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -202,8 +202,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dateTime_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, dateTime_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(senderName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, senderName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(responseMessage_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, responseMessage_);
@@ -217,8 +217,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dateTime_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, dateTime_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(senderName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, senderName_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(responseMessage_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, responseMessage_);
@@ -238,8 +238,8 @@ private static final long serialVersionUID = 0L;
     }
     grpc.foodaid.Chat.ChatResponse other = (grpc.foodaid.Chat.ChatResponse) obj;
 
-    if (!getDateTime()
-        .equals(other.getDateTime())) return false;
+    if (!getSenderName()
+        .equals(other.getSenderName())) return false;
     if (!getResponseMessage()
         .equals(other.getResponseMessage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -253,8 +253,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DATETIME_FIELD_NUMBER;
-    hash = (53 * hash) + getDateTime().hashCode();
+    hash = (37 * hash) + SENDERNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getSenderName().hashCode();
     hash = (37 * hash) + RESPONSEMESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getResponseMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -390,7 +390,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      dateTime_ = "";
+      senderName_ = "";
 
       responseMessage_ = "";
 
@@ -420,7 +420,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.foodaid.Chat.ChatResponse buildPartial() {
       grpc.foodaid.Chat.ChatResponse result = new grpc.foodaid.Chat.ChatResponse(this);
-      result.dateTime_ = dateTime_;
+      result.senderName_ = senderName_;
       result.responseMessage_ = responseMessage_;
       onBuilt();
       return result;
@@ -470,8 +470,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.foodaid.Chat.ChatResponse other) {
       if (other == grpc.foodaid.Chat.ChatResponse.getDefaultInstance()) return this;
-      if (!other.getDateTime().isEmpty()) {
-        dateTime_ = other.dateTime_;
+      if (!other.getSenderName().isEmpty()) {
+        senderName_ = other.senderName_;
         onChanged();
       }
       if (!other.getResponseMessage().isEmpty()) {
@@ -507,22 +507,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object dateTime_ = "";
+    private java.lang.Object senderName_ = "";
     /**
      * <pre>
-     * timestamp of message
+     * name of message sender
      * </pre>
      *
-     * <code>string dateTime = 1;</code>
-     * @return The dateTime.
+     * <code>string senderName = 1;</code>
+     * @return The senderName.
      */
-    public java.lang.String getDateTime() {
-      java.lang.Object ref = dateTime_;
+    public java.lang.String getSenderName() {
+      java.lang.Object ref = senderName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        dateTime_ = s;
+        senderName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -530,20 +530,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * timestamp of message
+     * name of message sender
      * </pre>
      *
-     * <code>string dateTime = 1;</code>
-     * @return The bytes for dateTime.
+     * <code>string senderName = 1;</code>
+     * @return The bytes for senderName.
      */
     public com.google.protobuf.ByteString
-        getDateTimeBytes() {
-      java.lang.Object ref = dateTime_;
+        getSenderNameBytes() {
+      java.lang.Object ref = senderName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        dateTime_ = b;
+        senderName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -551,54 +551,54 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * timestamp of message
+     * name of message sender
      * </pre>
      *
-     * <code>string dateTime = 1;</code>
-     * @param value The dateTime to set.
+     * <code>string senderName = 1;</code>
+     * @param value The senderName to set.
      * @return This builder for chaining.
      */
-    public Builder setDateTime(
+    public Builder setSenderName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      dateTime_ = value;
+      senderName_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * timestamp of message
+     * name of message sender
      * </pre>
      *
-     * <code>string dateTime = 1;</code>
+     * <code>string senderName = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDateTime() {
+    public Builder clearSenderName() {
       
-      dateTime_ = getDefaultInstance().getDateTime();
+      senderName_ = getDefaultInstance().getSenderName();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * timestamp of message
+     * name of message sender
      * </pre>
      *
-     * <code>string dateTime = 1;</code>
-     * @param value The bytes for dateTime to set.
+     * <code>string senderName = 1;</code>
+     * @param value The bytes for senderName to set.
      * @return This builder for chaining.
      */
-    public Builder setDateTimeBytes(
+    public Builder setSenderNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      dateTime_ = value;
+      senderName_ = value;
       onChanged();
       return this;
     }

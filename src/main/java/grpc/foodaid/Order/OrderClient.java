@@ -12,7 +12,8 @@ public class OrderClient {
 
 		OrderServiceGrpc.OrderServiceBlockingStub stub = OrderServiceGrpc.newBlockingStub(channel);
 
-		OrderRequest request = OrderRequest.newBuilder().setOrderId(123).setRecipient("John Doe").setFoodType("Rice")
+		OrderRequest request = OrderRequest.newBuilder()//.setOrderId(123)
+				.setRecipient("John Doe").setFoodType("Rice")
 				.setQuantity(10).setDeliveryAddress("123 Main St").build();
 
 		OrderConfirmation confirmation = stub.placeOrder(request);

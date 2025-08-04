@@ -16,7 +16,7 @@ option java_outer_classname = "SurplusImpl";
    
    
 message SurplusRequest {
-	int32 id = 1;                // unique identifier
+	//int32 id = 1;                // unique identifier
 	string food_type = 2;        // type of food that is in surplus
 	int32 quantity_food = 3;     // quantity of food
 	int32 nutritional_grade = 4; // nutritional rate for food type i.e. 1-10

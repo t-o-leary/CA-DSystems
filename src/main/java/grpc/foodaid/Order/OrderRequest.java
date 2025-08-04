@@ -55,11 +55,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
-
-            orderId_ = input.readInt32();
-            break;
-          }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -117,26 +112,11 @@ private static final long serialVersionUID = 0L;
             grpc.foodaid.Order.OrderRequest.class, grpc.foodaid.Order.OrderRequest.Builder.class);
   }
 
-  public static final int ORDER_ID_FIELD_NUMBER = 1;
-  private int orderId_;
-  /**
-   * <pre>
-   * unique order identifier
-   * </pre>
-   *
-   * <code>int32 order_id = 1;</code>
-   * @return The orderId.
-   */
-  @java.lang.Override
-  public int getOrderId() {
-    return orderId_;
-  }
-
   public static final int RECIPIENT_FIELD_NUMBER = 2;
   private volatile java.lang.Object recipient_;
   /**
    * <pre>
-   * recipient identifier
+   *int32 order_id = 1;          // unique order identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>
@@ -157,7 +137,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * recipient identifier
+   *int32 order_id = 1;          // unique order identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>
@@ -299,9 +279,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (orderId_ != 0) {
-      output.writeInt32(1, orderId_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, recipient_);
     }
@@ -323,10 +300,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (orderId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, orderId_);
-    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, recipient_);
     }
@@ -355,8 +328,6 @@ private static final long serialVersionUID = 0L;
     }
     grpc.foodaid.Order.OrderRequest other = (grpc.foodaid.Order.OrderRequest) obj;
 
-    if (getOrderId()
-        != other.getOrderId()) return false;
     if (!getRecipient()
         .equals(other.getRecipient())) return false;
     if (!getFoodType()
@@ -376,8 +347,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ORDER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getOrderId();
     hash = (37 * hash) + RECIPIENT_FIELD_NUMBER;
     hash = (53 * hash) + getRecipient().hashCode();
     hash = (37 * hash) + FOOD_TYPE_FIELD_NUMBER;
@@ -523,8 +492,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      orderId_ = 0;
-
       recipient_ = "";
 
       foodType_ = "";
@@ -559,7 +526,6 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.foodaid.Order.OrderRequest buildPartial() {
       grpc.foodaid.Order.OrderRequest result = new grpc.foodaid.Order.OrderRequest(this);
-      result.orderId_ = orderId_;
       result.recipient_ = recipient_;
       result.foodType_ = foodType_;
       result.quantity_ = quantity_;
@@ -612,9 +578,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.foodaid.Order.OrderRequest other) {
       if (other == grpc.foodaid.Order.OrderRequest.getDefaultInstance()) return this;
-      if (other.getOrderId() != 0) {
-        setOrderId(other.getOrderId());
-      }
       if (!other.getRecipient().isEmpty()) {
         recipient_ = other.recipient_;
         onChanged();
@@ -659,53 +622,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int orderId_ ;
-    /**
-     * <pre>
-     * unique order identifier
-     * </pre>
-     *
-     * <code>int32 order_id = 1;</code>
-     * @return The orderId.
-     */
-    @java.lang.Override
-    public int getOrderId() {
-      return orderId_;
-    }
-    /**
-     * <pre>
-     * unique order identifier
-     * </pre>
-     *
-     * <code>int32 order_id = 1;</code>
-     * @param value The orderId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrderId(int value) {
-      
-      orderId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * unique order identifier
-     * </pre>
-     *
-     * <code>int32 order_id = 1;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOrderId() {
-      
-      orderId_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object recipient_ = "";
     /**
      * <pre>
-     * recipient identifier
+     *int32 order_id = 1;          // unique order identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -725,7 +645,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     *int32 order_id = 1;          // unique order identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -746,7 +666,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     *int32 order_id = 1;          // unique order identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -765,7 +685,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     *int32 order_id = 1;          // unique order identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>
@@ -779,7 +699,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * recipient identifier
+     *int32 order_id = 1;          // unique order identifier
      * </pre>
      *
      * <code>string recipient = 2;</code>

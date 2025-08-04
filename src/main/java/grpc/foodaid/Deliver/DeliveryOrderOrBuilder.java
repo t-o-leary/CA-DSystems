@@ -9,17 +9,7 @@ public interface DeliveryOrderOrBuilder extends
 
   /**
    * <pre>
-   * unique identifier
-   * </pre>
-   *
-   * <code>int32 id = 1;</code>
-   * @return The id.
-   */
-  int getId();
-
-  /**
-   * <pre>
-   * recipient identifier
+   * int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>
@@ -28,7 +18,7 @@ public interface DeliveryOrderOrBuilder extends
   java.lang.String getRecipient();
   /**
    * <pre>
-   * recipient identifier
+   * int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string recipient = 2;</code>

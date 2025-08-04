@@ -13,32 +13,44 @@ import io.grpc.stub.StreamObserver;
 public class SurplusServer extends OrderServiceGrpc.SurplusServiceImplBase {
 	private static final Logger logger = Logger.getLogger(SurplusServer.class.getName());
 
-	public static void main(String[] args) {
+	public static String main(String[] port) {
 
 		// ANSI escape code for red text
 		String redText = "\u001B[31m";
 		// ANSI escape code to reset text color
 		String resetText = "\u001B[0m";
+		String returnServer = "";
 
 		SurplusServer SurplusService = new SurplusServer();
 
-		int port = 50053;
+		int iPort ;
+		
+		if (port[0] == null || port[0] == "0" || port.length == 0 ) {
+	          
+			 iPort = 50051;
+			 
+			 System.out.println("No port specified, using default port: " + port);
+			} else {
+				iPort = Integer.parseInt(port[0]);
+				System.out.println("Using specified port: " + iPort);
+			}
 
-		if (isPortAvailable(port)) {
-			System.out.println("Port " + port + " is available.");
+		if (isPortAvailable(iPort)) {
+			System.out.println("Port " + iPort + " is available.");
 
 			try {
 
 				System.out.println("Starting server...");
-				Server server = ServerBuilder.forPort(port).addService(SurplusService).build().start();
-				System.out.println("Server started on port " + port);
-				logger.info("Server started, listening on " + port);
+				Server server = ServerBuilder.forPort(iPort).addService(SurplusService).build().start();
+				System.out.println("Server started on port " + iPort);
+				logger.info("Server started, listening on " + iPort);
 				server.awaitTermination();
 
 			} catch (IOException e) {
 
+				returnServer = "Failed to start server: ";
 				// Log the exception
-				logger.severe("Failed to start server: " + e.getMessage() + "\n");
+				logger.severe(returnServer + e.getMessage() + "\n");
 
 				// Print the stack trace for debugging
 				e.printStackTrace();
@@ -49,17 +61,22 @@ public class SurplusServer extends OrderServiceGrpc.SurplusServiceImplBase {
 				// Print the stack trace for debugging
 				e.printStackTrace();
 			}
+			returnServer = "Server started on port " + iPort;
 
-			logger.info("Server started, listening on " + port);
+			logger.info(returnServer);
 
 		} else {
-			System.out.println(redText + "Port " + port + " is already in use." + resetText);
+
+			returnServer = "Port " + iPort + " is already in use.";
+
+			System.out.println(redText + returnServer + resetText);
 		}
+		return returnServer;
 
 	}
 
-	public static boolean isPortAvailable(int port) {
-		try (ServerSocket serverSocket = new ServerSocket(port)) {
+	public static boolean isPortAvailable(int iPort) {
+		try (ServerSocket serverSocket = new ServerSocket(iPort)) {
 			serverSocket.setReuseAddress(true);
 			return true;
 		} catch (IOException e) {
@@ -70,8 +87,7 @@ public class SurplusServer extends OrderServiceGrpc.SurplusServiceImplBase {
 	@Override
 	public void surplusRecord(SurplusRequest request, StreamObserver<OrderAcknowledge> responseObserver) {
 		OrderAcknowledge response = OrderAcknowledge.newBuilder()
-				// .setMessage("Surplus recorded")
-				// .build();
+
 				.setAccept(true).setMessage("Surplus request received for food type: " + request.getFoodType()).build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();

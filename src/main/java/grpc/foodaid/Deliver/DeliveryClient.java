@@ -40,7 +40,7 @@ public class DeliveryClient {
 
         // Send multiple DeliveryOrder messages
         DeliveryOrder order1 = DeliveryOrder.newBuilder()
-                .setId(1)
+                //.setId(1)
                 .setRecipient("John Doe")
                 .setDeliveryAddress("123 Main St, Dublin")
                 .setFoodType("Vegetables")
@@ -48,7 +48,7 @@ public class DeliveryClient {
                 .build();
 
         DeliveryOrder order2 = DeliveryOrder.newBuilder()
-                .setId(2)
+                //.setId(2)
                 .setRecipient("Jane Smith")
                 .setDeliveryAddress("456 Oak Ave, Cork")
                 .setFoodType("Fruit")

@@ -35,11 +35,11 @@ public final class ChatImpl {
     java.lang.String[] descriptorData = {
       "\n\023S4ChatService.proto\022\014foodaid.chat\"2\n\013C" +
       "hatRequest\022\022\n\nsenderName\030\001 \001(\t\022\017\n\007messag" +
-      "e\030\002 \001(\t\"9\n\014ChatResponse\022\020\n\010dateTime\030\001 \001(" +
-      "\t\022\027\n\017responseMessage\030\002 \001(\t2T\n\013ChatServic" +
-      "e\022E\n\010LiveChat\022\031.foodaid.chat.ChatRequest" +
-      "\032\032.foodaid.chat.ChatResponse(\0010\001B\037\n\021grpc" +
-      ".foodaid.ChatB\010ChatImplP\001b\006proto3"
+      "e\030\002 \001(\t\";\n\014ChatResponse\022\022\n\nsenderName\030\001 " +
+      "\001(\t\022\027\n\017responseMessage\030\002 \001(\t2T\n\013ChatServ" +
+      "ice\022E\n\010LiveChat\022\031.foodaid.chat.ChatReque" +
+      "st\032\032.foodaid.chat.ChatResponse(\0010\001B\037\n\021gr" +
+      "pc.foodaid.ChatB\010ChatImplP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -56,7 +56,7 @@ public final class ChatImpl {
     internal_static_foodaid_chat_ChatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foodaid_chat_ChatResponse_descriptor,
-        new java.lang.String[] { "DateTime", "ResponseMessage", });
+        new java.lang.String[] { "SenderName", "ResponseMessage", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

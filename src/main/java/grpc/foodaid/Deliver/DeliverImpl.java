@@ -34,17 +34,17 @@ public final class DeliverImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\027S3DeliveryService.proto\022\020foodaid.deliv" +
-      "ery\"m\n\rDeliveryOrder\022\n\n\002id\030\001 \001(\005\022\021\n\treci" +
-      "pient\030\002 \001(\t\022\030\n\020delivery_address\030\003 \001(\t\022\021\n" +
-      "\tfood_type\030\004 \001(\t\022\020\n\010quantity\030\005 \001(\005\"\220\001\n\014D" +
-      "eliveryPlan\022\030\n\020total_deliveries\030\001 \001(\005\022\026\n" +
-      "\016delivery_agent\030\002 \001(\t\022\r\n\005route\030\003 \003(\t\022/\n\006" +
-      "orders\030\004 \003(\0132\037.foodaid.delivery.Delivery" +
-      "Order\022\016\n\006status\030\005 \001(\t2h\n\017DeliveryService" +
-      "\022U\n\020submitDeliveries\022\037.foodaid.delivery." +
-      "DeliveryOrder\032\036.foodaid.delivery.Deliver" +
-      "yPlan(\001B%\n\024grpc.foodaid.DeliverB\013Deliver" +
-      "ImplP\001b\006proto3"
+      "ery\"a\n\rDeliveryOrder\022\021\n\trecipient\030\002 \001(\t\022" +
+      "\030\n\020delivery_address\030\003 \001(\t\022\021\n\tfood_type\030\004" +
+      " \001(\t\022\020\n\010quantity\030\005 \001(\005\"\220\001\n\014DeliveryPlan\022" +
+      "\030\n\020total_deliveries\030\001 \001(\005\022\026\n\016delivery_ag" +
+      "ent\030\002 \001(\t\022\r\n\005route\030\003 \003(\t\022/\n\006orders\030\004 \003(\013" +
+      "2\037.foodaid.delivery.DeliveryOrder\022\016\n\006sta" +
+      "tus\030\005 \001(\t2h\n\017DeliveryService\022U\n\020submitDe" +
+      "liveries\022\037.foodaid.delivery.DeliveryOrde" +
+      "r\032\036.foodaid.delivery.DeliveryPlan(\001B%\n\024g" +
+      "rpc.foodaid.DeliverB\013DeliverImplP\001b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -55,7 +55,7 @@ public final class DeliverImpl {
     internal_static_foodaid_delivery_DeliveryOrder_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foodaid_delivery_DeliveryOrder_descriptor,
-        new java.lang.String[] { "Id", "Recipient", "DeliveryAddress", "FoodType", "Quantity", });
+        new java.lang.String[] { "Recipient", "DeliveryAddress", "FoodType", "Quantity", });
     internal_static_foodaid_delivery_DeliveryPlan_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_foodaid_delivery_DeliveryPlan_fieldAccessorTable = new

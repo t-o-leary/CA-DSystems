@@ -9,23 +9,23 @@ public interface ChatResponseOrBuilder extends
 
   /**
    * <pre>
-   * timestamp of message
+   * name of message sender
    * </pre>
    *
-   * <code>string dateTime = 1;</code>
-   * @return The dateTime.
+   * <code>string senderName = 1;</code>
+   * @return The senderName.
    */
-  java.lang.String getDateTime();
+  java.lang.String getSenderName();
   /**
    * <pre>
-   * timestamp of message
+   * name of message sender
    * </pre>
    *
-   * <code>string dateTime = 1;</code>
-   * @return The bytes for dateTime.
+   * <code>string senderName = 1;</code>
+   * @return The bytes for senderName.
    */
   com.google.protobuf.ByteString
-      getDateTimeBytes();
+      getSenderNameBytes();
 
   /**
    * <pre>

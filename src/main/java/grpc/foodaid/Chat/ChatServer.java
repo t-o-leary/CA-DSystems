@@ -73,7 +73,8 @@ private static final Logger logger = Logger.getLogger(ChatServer.class.getName()
 	        	Date d1 = new Date();
 	        	
 	        	for (StreamObserver<ChatResponse> observer : observers) {
-					observer.onNext(ChatResponse.newBuilder().setDateTime(d1.toString())
+					observer.onNext(ChatResponse.newBuilder()
+							//.setDateTime(d1.toString())
 							.setResponseMessage("Received: " + request.getMessage()).build());
 	        	}
 	        	

@@ -9,17 +9,7 @@ public interface SurplusRequestOrBuilder extends
 
   /**
    * <pre>
-   * unique identifier
-   * </pre>
-   *
-   * <code>int32 id = 1;</code>
-   * @return The id.
-   */
-  int getId();
-
-  /**
-   * <pre>
-   * type of food that is in surplus
+   *int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string food_type = 2;</code>
@@ -28,7 +18,7 @@ public interface SurplusRequestOrBuilder extends
   java.lang.String getFoodType();
   /**
    * <pre>
-   * type of food that is in surplus
+   *int32 id = 1;                // unique identifier
    * </pre>
    *
    * <code>string food_type = 2;</code>

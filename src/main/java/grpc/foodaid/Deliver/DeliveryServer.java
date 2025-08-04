@@ -100,7 +100,7 @@ public class DeliveryServer extends DeliveryServiceGrpc.DeliveryServiceImplBase 
 	            @Override
 	            public void onNext(DeliveryOrder order) {
 	                orders.add(order);
-	                logger.info("Received order: " + order.getId());
+	                logger.info("Received order: " + order.getRecipient());
 	            }
 
 	            @Override

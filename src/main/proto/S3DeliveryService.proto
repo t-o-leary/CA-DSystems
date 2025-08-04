@@ -12,7 +12,7 @@ service DeliveryService {
 }
 
 message DeliveryOrder {
-  int32 id = 1;                // unique identifier
+ // int32 id = 1;                // unique identifier
   string recipient = 2;        // recipient identifier
   string delivery_address = 3; // delivery address
   string food_type = 4;        // type of food

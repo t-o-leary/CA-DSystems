@@ -44,19 +44,19 @@ public final class OrderImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\026S2FoodInsService.proto\022\rfoodaid.order\"" +
-      "r\n\014OrderRequest\022\020\n\010order_id\030\001 \001(\005\022\021\n\trec" +
-      "ipient\030\002 \001(\t\022\021\n\tfood_type\030\003 \001(\t\022\020\n\010quant" +
-      "ity\030\004 \001(\005\022\030\n\020delivery_address\030\005 \001(\t\"I\n\021O" +
-      "rderConfirmation\022\020\n\010order_id\030\001 \001(\t\022\021\n\tco" +
-      "nfirmed\030\002 \001(\010\022\017\n\007message\030\003 \001(\t\"&\n\022OrderS" +
-      "tatusRequest\022\020\n\010order_id\030\001 \001(\t\"5\n\021OrderS" +
-      "tatusUpdate\022\020\n\010order_id\030\001 \001(\t\022\016\n\006status\030" +
-      "\002 \001(\t2\270\001\n\014OrderService\022K\n\nPlaceOrder\022\033.f" +
-      "oodaid.order.OrderRequest\032 .foodaid.orde" +
-      "r.OrderConfirmation\022[\n\022StreamOrderUpdate" +
-      "s\022!.foodaid.order.OrderStatusRequest\032 .f" +
-      "oodaid.order.OrderStatusUpdate0\001B!\n\022grpc" +
-      ".foodaid.OrderB\tOrderImplP\001b\006proto3"
+      "`\n\014OrderRequest\022\021\n\trecipient\030\002 \001(\t\022\021\n\tfo" +
+      "od_type\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\005\022\030\n\020deliv" +
+      "ery_address\030\005 \001(\t\"I\n\021OrderConfirmation\022\020" +
+      "\n\010order_id\030\001 \001(\t\022\021\n\tconfirmed\030\002 \001(\010\022\017\n\007m" +
+      "essage\030\003 \001(\t\"&\n\022OrderStatusRequest\022\020\n\010or" +
+      "der_id\030\001 \001(\t\"5\n\021OrderStatusUpdate\022\020\n\010ord" +
+      "er_id\030\001 \001(\t\022\016\n\006status\030\002 \001(\t2\270\001\n\014OrderSer" +
+      "vice\022K\n\nPlaceOrder\022\033.foodaid.order.Order" +
+      "Request\032 .foodaid.order.OrderConfirmatio" +
+      "n\022[\n\022StreamOrderUpdates\022!.foodaid.order." +
+      "OrderStatusRequest\032 .foodaid.order.Order" +
+      "StatusUpdate0\001B!\n\022grpc.foodaid.OrderB\tOr" +
+      "derImplP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -67,7 +67,7 @@ public final class OrderImpl {
     internal_static_foodaid_order_OrderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foodaid_order_OrderRequest_descriptor,
-        new java.lang.String[] { "OrderId", "Recipient", "FoodType", "Quantity", "DeliveryAddress", });
+        new java.lang.String[] { "Recipient", "FoodType", "Quantity", "DeliveryAddress", });
     internal_static_foodaid_order_OrderConfirmation_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_foodaid_order_OrderConfirmation_fieldAccessorTable = new

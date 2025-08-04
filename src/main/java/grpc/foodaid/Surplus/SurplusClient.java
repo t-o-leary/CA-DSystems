@@ -26,10 +26,11 @@ public class SurplusClient {
 	}
 
 	public static void main(String[] args) throws Exception {
-		SurplusClient client = new SurplusClient("localhost", 50053);
+		SurplusClient client = new SurplusClient("localhost", 50051);
 		try {
 			// Build a sample SurplusRequest
-			SurplusRequest request = SurplusRequest.newBuilder().setId(1).setFoodType("Vegetables").setQuantityFood(100)
+			SurplusRequest request = SurplusRequest.newBuilder()//.setId(1)
+					.setFoodType("Vegetables").setQuantityFood(100)
 					.setNutritionalGrade(7).setLocation("Dublin").setDepo(2).build();
 
 			OrderAcknowledge response = client.recordSurplus(request);
