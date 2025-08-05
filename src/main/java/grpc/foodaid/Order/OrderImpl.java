@@ -44,9 +44,9 @@ public final class OrderImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\026S2FoodInsService.proto\022\rfoodaid.order\"" +
-      "`\n\014OrderRequest\022\021\n\trecipient\030\002 \001(\t\022\021\n\tfo" +
-      "od_type\030\003 \001(\t\022\020\n\010quantity\030\004 \001(\005\022\030\n\020deliv" +
-      "ery_address\030\005 \001(\t\"I\n\021OrderConfirmation\022\020" +
+      "`\n\014OrderRequest\022\021\n\trecipient\030\001 \001(\t\022\021\n\tfo" +
+      "od_type\030\002 \001(\t\022\020\n\010quantity\030\003 \001(\005\022\030\n\020deliv" +
+      "ery_address\030\004 \001(\t\"I\n\021OrderConfirmation\022\020" +
       "\n\010order_id\030\001 \001(\t\022\021\n\tconfirmed\030\002 \001(\010\022\017\n\007m" +
       "essage\030\003 \001(\t\"&\n\022OrderStatusRequest\022\020\n\010or" +
       "der_id\030\001 \001(\t\"5\n\021OrderStatusUpdate\022\020\n\010ord" +

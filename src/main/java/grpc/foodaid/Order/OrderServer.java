@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.logging.Logger;
 
-import grpc.foodaid.Order.OrderServiceGrpc.OrderServiceImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -14,7 +13,7 @@ public class OrderServer extends OrderServiceGrpc.OrderServiceImplBase {
 
 	private static final Logger logger = Logger.getLogger(OrderServer.class.getName());
 
-	public static void main(String[] args) {
+	public static void main(String[] port) {
 
 		// ANSI escape code for red text
 		String redText = "\u001B[31m";
@@ -23,17 +22,27 @@ public class OrderServer extends OrderServiceGrpc.OrderServiceImplBase {
 
 		OrderServer OrderService = new OrderServer();
 
-		int port = 50051;
+		int iPort;
 
-		if (isPortAvailable(port)) {
-			System.out.println("Port " + port + " is available.");
+		if (port[0] == null || port[0] == "0" || port.length == 0) {
+
+			iPort = 50052;
+
+			System.out.println("No port specified, using default port: " + iPort);
+		} else {
+			iPort = Integer.parseInt(port[0]);
+			System.out.println("Using specified port: " + iPort);
+		}
+
+		if (isPortAvailable(iPort)) {
+			System.out.println("Port " + iPort + " is available.");
 
 			try {
 
 				System.out.println("Starting server...");
-				Server server = ServerBuilder.forPort(port).addService(OrderService).build().start();
-				System.out.println("Server started on port " + port);
-				logger.info("Server started, listening on " + port);
+				Server server = ServerBuilder.forPort(iPort).addService(OrderService).build().start();
+				System.out.println("Server started on port " + iPort);
+				logger.info("Server started, listening on " + iPort);
 				server.awaitTermination();
 
 			} catch (IOException e) {
@@ -51,16 +60,16 @@ public class OrderServer extends OrderServiceGrpc.OrderServiceImplBase {
 				e.printStackTrace();
 			}
 
-			logger.info("Server started, listening on " + port);
+			logger.info("Server started, listening on " + iPort);
 
 		} else {
-			System.out.println(redText + "Port " + port + " is already in use." + resetText);
+			System.out.println(redText + "Port " + iPort + " is already in use." + resetText);
 		}
 
 	}
 
-	public static boolean isPortAvailable(int port) {
-		try (ServerSocket serverSocket = new ServerSocket(port)) {
+	public static boolean isPortAvailable(int iPort) {
+		try (ServerSocket serverSocket = new ServerSocket(iPort)) {
 			serverSocket.setReuseAddress(true);
 			return true;
 		} catch (IOException e) {
@@ -94,9 +103,10 @@ public class OrderServer extends OrderServiceGrpc.OrderServiceImplBase {
 			}
 
 			OrderStatusUpdate update = OrderStatusUpdate.newBuilder().setOrderId(request.getOrderId())
-					.setStatus("Order Status: " + orderStatus[i]).build();
+					.setStatus( orderStatus[i]).build();
 
 			responseObserver.onNext(update);
 		}
+		responseObserver.onCompleted();
 	}
 }

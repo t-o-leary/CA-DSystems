@@ -10,32 +10,28 @@ import javax.swing.SwingUtilities;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
-import grpc.foodaid.Surplus.OrderAcknowledge;
+import grpc.foodaid.Surplus.SurplusAcknowledge;
 import grpc.foodaid.Surplus.SurplusClient;
 import grpc.foodaid.Surplus.SurplusRequest;
 import grpc.foodaid.Surplus.SurplusServer;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.ServerSocket;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
 public class ConsoleInterface {
 
-	private JFrame frame;
-	private JLabel lblResponse;
-	private JTextField txtFoodType;
-	private JTextField txtQuantity;
-	private JTextField txtLocation;
-	private JTextField txtGrade;
-	private JTextField txtDepo;
-	private JLabel lblNewLabel;
-	private JLabel lblQuantity;
-	private JLabel lblNutrisionGrad;
-	private JLabel lblLocation;
-	private JLabel lblDepo;
-	private JMenuBar menuBar;
-	private JMenu Services;
-	private JMenuItem service1, service2, service3, service4;
+	public JFrame frame;
+
+	public JMenuBar menuBar;
+	public JMenu Services;
+	public JMenuItem service1, service2, service3, service4;
+
+	private InitialiseService1 service1Panel;
+	private InitialiseService2 service2Panel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -49,139 +45,103 @@ public class ConsoleInterface {
 	}
 
 	public ConsoleInterface() {
-		initialize();
-	}
 
-	private void initialize() {
 		int portS1 = 50051; // Port for Surplus Service
 		int portS2 = 50052; // Port for Order Service
 		int portS3 = 50053; // Port for Deliver Service
 		int portS4 = 50054; // Port for Chat Service
-		
-		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 766, 663);
+
+		initialiseFrame();
+		service1Panel = new InitialiseService1(frame, portS1);
+		service2Panel = new InitialiseService2(frame, portS2);
+		// initialiseService2(portS2);
+
+		service1.addActionListener(e -> {
+			// Show Service 1 panel when the menu item is clicked
+
+			service1Panel.groupPanelService1_btn.setVisible(true);
+			service2Panel.groupPanelService2.setVisible(false);
+			service2Panel.groupPanelService2_btn.setVisible(false);
+			if (isPortAvailable(portS1)) {
+
+				// Set the service started flag
+
+				service1Panel.groupPanelService1.setVisible(false);
+
+			} else {
+				service1Panel.groupPanelService1.setVisible(true);
+
+			}
+
+		});
+		service2.addActionListener(e -> {
+			
+			service2Panel.groupPanelService2_btn.setVisible(true);		
+			// Hide Service 1 panel when the menu item is clicked
+			service1Panel.groupPanelService1.setVisible(false);
+			service1Panel.groupPanelService1_btn.setVisible(false);
+			// Show Service 2 panel
+			if (isPortAvailable(portS2)) {
+
+				// Set the service started flag
+
+				service2Panel.groupPanelService2.setVisible(false);
+
+			} else {
+				service2Panel.groupPanelService2.setVisible(true);
+
+			}
+			});
+
+		service3.addActionListener(e -> {
+			// Hide Service 1 panel when the menu item is clicked
+			service1Panel.groupPanelService1.setVisible(false);
+			service1Panel.groupPanelService1_btn.setVisible(false);
+			// Show Service 2 panel
+			// groupPanelService2.setVisible(true);
+		});
+
+		service4.addActionListener(e -> {
+			// Hide Service 1 panel when the menu item is clicked
+			service1Panel.groupPanelService1.setVisible(false);
+			service1Panel.groupPanelService1_btn.setVisible(false);
+			// Show Service 2 panel
+			// groupPanelService2.setVisible(true);
+		});
+
+	}
+
+	public void initialiseFrame() {
+
+		frame = new JFrame("Food Aid Console Interface");
+		frame.setBounds(100, 100, 607, 436);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		menuBar = new JMenuBar();
-		Services = new JMenu("Services");
+		Services = new JMenu("Services Menu");
 		service1 = new JMenuItem("Surplus Service");
 		service2 = new JMenuItem("Order Service");
 		service3 = new JMenuItem("Deliver Service");
 		service4 = new JMenuItem("Chat Service");
-		
+
 		Services.add(service1);
 		Services.add(service2);
 		Services.add(service3);
 		Services.add(service4);
-		
+
 		menuBar.add(Services);
 		frame.setJMenuBar(menuBar);
-		
-		
-		
-		// Also, initialize lblResponse and add to frame
-		lblResponse = new JLabel("");
-		lblResponse.setBounds(0, 218, 279, 47);
-		frame.getContentPane().add(lblResponse);
 
-		JButton btnSubmit = new JButton("Send");
-		btnSubmit.setBackground(Color.GREEN);
-		btnSubmit.setBounds(199, 11, 89, 23);
-		frame.getContentPane().add(btnSubmit);
-
-		JButton btnStartService1 = new JButton("Start Surplus Service");
-		btnStartService1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				btnStartService1.setText("Starting Surplus Service...");
-				new Thread(() -> {
-					// Update label to "Started" on the EDT after thread begins
-					SwingUtilities.invokeLater(() -> btnStartService1.setText("Surplus Service Started"));
-					SurplusServer.main(new String[] { String.valueOf(portS1) });
-				}).start();
-				btnStartService1.setEnabled(false);
-			}
-		});
-
-		btnSubmit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				String foodType = txtFoodType.getText();
-				int quantity = Integer.parseInt(txtQuantity.getText());
-				int grade = Integer.parseInt(txtGrade.getText());
-				String location = txtLocation.getText();
-				int depo = Integer.parseInt(txtDepo.getText());
-
-				SurplusRequest request = SurplusRequest.newBuilder().setFoodType(foodType)
-						.setQuantityFood(quantity).setNutritionalGrade(grade).setLocation(location).setDepo(depo)
-						.build();
-
-				SurplusClient client = new SurplusClient("localhost", portS1);
-				try {
-					OrderAcknowledge response = client.recordSurplus(request);
-					lblResponse.setText("Server response: " + response.getMessage());
-				} catch (Exception ex) {
-					lblResponse.setText("Error: " + ex.getMessage());
-				} finally {
-					try {
-						client.shutdown();
-					} catch (InterruptedException ignored) {
-					}
-				}
-			}
-		});
-
-		btnStartService1.setBounds(10, 11, 179, 23);
-		frame.getContentPane().add(btnStartService1);
-
-		txtFoodType = new JTextField();
-		txtFoodType.setBounds(109, 63, 179, 20);
-		frame.getContentPane().add(txtFoodType);
-		txtFoodType.setColumns(10);
-
-		txtQuantity = new JTextField();
-		txtQuantity.setColumns(10);
-		txtQuantity.setBounds(109, 94, 179, 20);
-		frame.getContentPane().add(txtQuantity);
-
-		txtLocation = new JTextField();
-		txtLocation.setColumns(10);
-		txtLocation.setBounds(109, 156, 179, 20);
-		frame.getContentPane().add(txtLocation);
-
-		txtGrade = new JTextField();
-		txtGrade.setColumns(10);
-		txtGrade.setBounds(109, 125, 179, 20);
-		frame.getContentPane().add(txtGrade);
-
-		txtDepo = new JTextField();
-		txtDepo.setColumns(10);
-		txtDepo.setBounds(109, 187, 179, 20);
-		frame.getContentPane().add(txtDepo);
-		
-		JLabel lblS1Response = new JLabel("");
-		lblS1Response.setBounds(10, 230, 264, 36);
-		frame.getContentPane().add(lblS1Response);
-		
-		lblNewLabel = new JLabel("Food Type");
-		lblNewLabel.setBounds(10, 66, 79, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
-		lblQuantity = new JLabel("Quantity");
-		lblQuantity.setBounds(10, 97, 79, 14);
-		frame.getContentPane().add(lblQuantity);
-		
-		lblNutrisionGrad = new JLabel("Nutrition grade");
-		lblNutrisionGrad.setBounds(10, 128, 79, 14);
-		frame.getContentPane().add(lblNutrisionGrad);
-		
-		lblLocation = new JLabel("Location");
-		lblLocation.setBounds(10, 159, 79, 14);
-		frame.getContentPane().add(lblLocation);
-		
-		lblDepo = new JLabel("Depo");
-		lblDepo.setBounds(10, 193, 79, 14);
-		frame.getContentPane().add(lblDepo);
 	}
+
+	public static boolean isPortAvailable(int iPort) {
+		try (ServerSocket serverSocket = new ServerSocket(iPort)) {
+			serverSocket.setReuseAddress(true);
+			return true;
+		} catch (IOException e) {
+			return false;
+		}
+	}
+
 }

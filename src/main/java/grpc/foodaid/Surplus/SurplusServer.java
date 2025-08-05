@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.logging.Logger;
 
-import grpc.foodaid.Surplus.OrderServiceGrpc.SurplusServiceImplBase;
+import grpc.foodaid.Surplus.SurplusServiceGrpc.SurplusServiceImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 //import io.grpc.stub.StreamObserver;
 
-public class SurplusServer extends OrderServiceGrpc.SurplusServiceImplBase {
+public class SurplusServer extends SurplusServiceGrpc.SurplusServiceImplBase {
 	private static final Logger logger = Logger.getLogger(SurplusServer.class.getName());
 
 	public static String main(String[] port) {
@@ -85,8 +85,8 @@ public class SurplusServer extends OrderServiceGrpc.SurplusServiceImplBase {
 	}
 
 	@Override
-	public void surplusRecord(SurplusRequest request, StreamObserver<OrderAcknowledge> responseObserver) {
-		OrderAcknowledge response = OrderAcknowledge.newBuilder()
+	public void surplusRecord(SurplusRequest request, StreamObserver<SurplusAcknowledge> responseObserver) {
+		SurplusAcknowledge response = SurplusAcknowledge.newBuilder()
 
 				.setAccept(true).setMessage("Surplus request received for food type: " + request.getFoodType()).build();
 		responseObserver.onNext(response);

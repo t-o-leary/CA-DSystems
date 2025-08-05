@@ -9,19 +9,19 @@ public interface OrderRequestOrBuilder extends
 
   /**
    * <pre>
-   *int32 order_id = 1;          // unique order identifier
+   * recipient identifier
    * </pre>
    *
-   * <code>string recipient = 2;</code>
+   * <code>string recipient = 1;</code>
    * @return The recipient.
    */
   java.lang.String getRecipient();
   /**
    * <pre>
-   *int32 order_id = 1;          // unique order identifier
+   * recipient identifier
    * </pre>
    *
-   * <code>string recipient = 2;</code>
+   * <code>string recipient = 1;</code>
    * @return The bytes for recipient.
    */
   com.google.protobuf.ByteString
@@ -32,7 +32,7 @@ public interface OrderRequestOrBuilder extends
    * ordered type of food
    * </pre>
    *
-   * <code>string food_type = 3;</code>
+   * <code>string food_type = 2;</code>
    * @return The foodType.
    */
   java.lang.String getFoodType();
@@ -41,7 +41,7 @@ public interface OrderRequestOrBuilder extends
    * ordered type of food
    * </pre>
    *
-   * <code>string food_type = 3;</code>
+   * <code>string food_type = 2;</code>
    * @return The bytes for foodType.
    */
   com.google.protobuf.ByteString
@@ -52,7 +52,7 @@ public interface OrderRequestOrBuilder extends
    * quantity requested
    * </pre>
    *
-   * <code>int32 quantity = 4;</code>
+   * <code>int32 quantity = 3;</code>
    * @return The quantity.
    */
   int getQuantity();
@@ -62,7 +62,7 @@ public interface OrderRequestOrBuilder extends
    * delivery address
    * </pre>
    *
-   * <code>string delivery_address = 5;</code>
+   * <code>string delivery_address = 4;</code>
    * @return The deliveryAddress.
    */
   java.lang.String getDeliveryAddress();
@@ -71,7 +71,7 @@ public interface OrderRequestOrBuilder extends
    * delivery address
    * </pre>
    *
-   * <code>string delivery_address = 5;</code>
+   * <code>string delivery_address = 4;</code>
    * @return The bytes for deliveryAddress.
    */
   com.google.protobuf.ByteString

@@ -17,11 +17,11 @@ service OrderService {
 
 // Request a food order
 message OrderRequest {
-	//int32 order_id = 1;          // unique order identifier
-	string recipient = 2;        // recipient identifier
-	string food_type = 3;        // ordered type of food
-	int32 quantity = 4;          // quantity requested
-	string delivery_address = 5; // delivery address
+	
+	string recipient = 1;        // recipient identifier
+	string food_type = 2;        // ordered type of food
+	int32 quantity = 3;          // quantity requested
+	string delivery_address = 4; // delivery address
 }
 
 // Acknowledges receipt of the order
