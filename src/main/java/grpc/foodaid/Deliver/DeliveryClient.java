@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class DeliveryClient {
 
     private final ManagedChannel channel;
-    private final DeliveryServiceGrpc.DeliveryServiceStub asyncStub;
+    public final DeliveryServiceGrpc.DeliveryServiceStub asyncStub;
 
     public DeliveryClient(String host, int port) {
         this.channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
@@ -17,8 +17,63 @@ public class DeliveryClient {
     }
 
     public void submitDeliveries() throws InterruptedException {
-        CountDownLatch finishLatch = new CountDownLatch(1);
+       
+    	
+		StreamObserver<DeliveryOrder> requestObserver = asyncStub.submitDeliveries(new StreamObserver<DeliveryPlan>() {
+			
+			@Override
+			public void onNext(DeliveryPlan value) {
+				System.out.println("Received DeliveryPlan: " + value);
+			}
 
+			@Override
+			public void onError(Throwable t) {
+				System.err.println("Error in stream: " + t.getMessage());
+			}
+
+			@Override
+			public void onCompleted() {
+				System.out.println("Stream completed.");
+			}
+		});
+
+		// Example DeliveryOrder messages
+		DeliveryOrder order1 = DeliveryOrder.newBuilder().setRecipient("John Doe")
+				.setDeliveryAddress("123 Main St, Dublin").setFoodType("Vegetables").setQuantity(100).build();
+
+		DeliveryOrder order2 = DeliveryOrder.newBuilder().setRecipient("Jane Smith")
+				.setDeliveryAddress("456 Oak Ave, Cork").setFoodType("Fruit").setQuantity(50).build();
+
+		requestObserver.onNext(order1);
+		requestObserver.onNext(order2);
+
+		// Complete the stream
+		requestObserver.onCompleted();
+    			//(new StreamObserver<>() 
+    			{	
+    				
+    				 channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);// Shutdown the channel after completion
+    	
+    			}
+    }
+}
+
+    	
+    /*	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	CountDownLatch finishLatch = new CountDownLatch(1);
+
+        
         StreamObserver<DeliveryPlan> responseObserver = new StreamObserver<DeliveryPlan>() {
             @Override
             public void onNext(DeliveryPlan value) {
@@ -69,8 +124,8 @@ public class DeliveryClient {
         channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    public static void main(String[] args) throws Exception {
-        DeliveryClient client = new DeliveryClient("localhost", 50052);
+    public static void main(String[] x, String  host, Integer port) throws Exception {
+        DeliveryClient client = new DeliveryClient(host, port);
         try {
             client.submitDeliveries();
         } finally {
@@ -78,3 +133,4 @@ public class DeliveryClient {
         }
     }
 }
+    	*/

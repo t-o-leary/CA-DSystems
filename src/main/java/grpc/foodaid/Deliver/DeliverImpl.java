@@ -34,9 +34,9 @@ public final class DeliverImpl {
   static {
     java.lang.String[] descriptorData = {
       "\n\027S3DeliveryService.proto\022\020foodaid.deliv" +
-      "ery\"a\n\rDeliveryOrder\022\021\n\trecipient\030\002 \001(\t\022" +
-      "\030\n\020delivery_address\030\003 \001(\t\022\021\n\tfood_type\030\004" +
-      " \001(\t\022\020\n\010quantity\030\005 \001(\005\"\220\001\n\014DeliveryPlan\022" +
+      "ery\"a\n\rDeliveryOrder\022\021\n\trecipient\030\001 \001(\t\022" +
+      "\030\n\020delivery_address\030\002 \001(\t\022\021\n\tfood_type\030\003" +
+      " \001(\t\022\020\n\010quantity\030\004 \001(\005\"\220\001\n\014DeliveryPlan\022" +
       "\030\n\020total_deliveries\030\001 \001(\005\022\026\n\016delivery_ag" +
       "ent\030\002 \001(\t\022\r\n\005route\030\003 \003(\t\022/\n\006orders\030\004 \003(\013" +
       "2\037.foodaid.delivery.DeliveryOrder\022\016\n\006sta" +

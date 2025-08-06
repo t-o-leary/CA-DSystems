@@ -34,9 +34,9 @@ public class OrderClient {
 	}
 	
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] x, String  host, Integer port ) throws Exception {
 	
-		OrderClient client = new OrderClient("localhost", 50052);
+		OrderClient client = new OrderClient(host, port);
 		try {
 		OrderRequest request = OrderRequest.newBuilder()//.setOrderId(123)
 				.setRecipient("John Doe").setFoodType("Rice")

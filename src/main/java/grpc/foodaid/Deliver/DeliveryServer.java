@@ -31,7 +31,7 @@ public class DeliveryServer extends DeliveryServiceGrpc.DeliveryServiceImplBase 
 	// between the client and server over the network.
 	// The DeliverServer will be responsible for processing delivery requests,
 	// managing delivery statuses, and providing updates to clients.
-	public static void main(String[] args) {
+	public static void main(String[] port) {
 		// Start the Deliver server here.
 		// This will involve setting up the gRPC server,
 		// registering the Deliver service implementation,
@@ -47,17 +47,28 @@ public class DeliveryServer extends DeliveryServiceGrpc.DeliveryServiceImplBase 
 
 		DeliveryServer DeliverService = new DeliveryServer();
 
-		int port = 50052;
+		int iPort;
 
-		if (isPortAvailable(port)) {
+		if (port[0] == null || port[0] == "0" || port.length == 0) {
+
+			iPort = 50052;
+
+			System.out.println("No port specified, using default port: " + iPort);
+		} else {
+			iPort = Integer.parseInt(port[0]);
+			System.out.println("Using specified port: " + iPort);
+		}
+
+
+		if (isPortAvailable(iPort)) {
 			System.out.println("Port " + port + " is available.");
 
 			try {
 
 				System.out.println("Starting server...");
-				Server server = ServerBuilder.forPort(port).addService(DeliverService).build().start();
-				System.out.println("Server started on port " + port);
-				logger.info("Server started, listening on " + port);
+				Server server = ServerBuilder.forPort(iPort).addService(DeliverService).build().start();
+				System.out.println("Server started on port " + iPort);
+				logger.info("Server started, listening on " + iPort);
 				server.awaitTermination();
 
 			} catch (IOException e) {
@@ -75,10 +86,10 @@ public class DeliveryServer extends DeliveryServiceGrpc.DeliveryServiceImplBase 
 				e.printStackTrace();
 			}
 
-			logger.info("Server started, listening on " + port);
+			logger.info("Server started, listening on " + iPort);
 
 		} else {
-			System.out.println(redText + "Port " + port + " is already in use." + resetText);
+			System.out.println(redText + "Port " + iPort + " is already in use." + resetText);
 		}
 
 	}
@@ -118,8 +129,10 @@ public class DeliveryServer extends DeliveryServiceGrpc.DeliveryServiceImplBase 
 	                planBuilder.setTotalDeliveries(orders.size());
 	                planBuilder.setDeliveryAgent("Agent007"); // Example agent)
 	                planBuilder.setStatus("All deliveries received and planned.");
-	                responseObserver.onNext(planBuilder.build());
+	                logger.info("Sending DeliveryPlan: " + planBuilder.build());
+	                responseObserver.onNext(planBuilder.build());;
 	                responseObserver.onCompleted();
+	                
 	            }
 	        };
 	    }

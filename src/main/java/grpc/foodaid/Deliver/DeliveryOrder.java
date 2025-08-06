@@ -51,25 +51,25 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 18: {
+          case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
             recipient_ = s;
             break;
           }
-          case 26: {
+          case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
             deliveryAddress_ = s;
             break;
           }
-          case 34: {
+          case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
             foodType_ = s;
             break;
           }
-          case 40: {
+          case 32: {
 
             quantity_ = input.readInt32();
             break;
@@ -108,14 +108,14 @@ private static final long serialVersionUID = 0L;
             grpc.foodaid.Deliver.DeliveryOrder.class, grpc.foodaid.Deliver.DeliveryOrder.Builder.class);
   }
 
-  public static final int RECIPIENT_FIELD_NUMBER = 2;
+  public static final int RECIPIENT_FIELD_NUMBER = 1;
   private volatile java.lang.Object recipient_;
   /**
    * <pre>
-   * int32 id = 1;                // unique identifier
+   * recipient identifier
    * </pre>
    *
-   * <code>string recipient = 2;</code>
+   * <code>string recipient = 1;</code>
    * @return The recipient.
    */
   @java.lang.Override
@@ -133,10 +133,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * int32 id = 1;                // unique identifier
+   * recipient identifier
    * </pre>
    *
-   * <code>string recipient = 2;</code>
+   * <code>string recipient = 1;</code>
    * @return The bytes for recipient.
    */
   @java.lang.Override
@@ -154,14 +154,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int DELIVERY_ADDRESS_FIELD_NUMBER = 3;
+  public static final int DELIVERY_ADDRESS_FIELD_NUMBER = 2;
   private volatile java.lang.Object deliveryAddress_;
   /**
    * <pre>
    * delivery address
    * </pre>
    *
-   * <code>string delivery_address = 3;</code>
+   * <code>string delivery_address = 2;</code>
    * @return The deliveryAddress.
    */
   @java.lang.Override
@@ -182,7 +182,7 @@ private static final long serialVersionUID = 0L;
    * delivery address
    * </pre>
    *
-   * <code>string delivery_address = 3;</code>
+   * <code>string delivery_address = 2;</code>
    * @return The bytes for deliveryAddress.
    */
   @java.lang.Override
@@ -200,14 +200,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int FOOD_TYPE_FIELD_NUMBER = 4;
+  public static final int FOOD_TYPE_FIELD_NUMBER = 3;
   private volatile java.lang.Object foodType_;
   /**
    * <pre>
    * type of food
    * </pre>
    *
-   * <code>string food_type = 4;</code>
+   * <code>string food_type = 3;</code>
    * @return The foodType.
    */
   @java.lang.Override
@@ -228,7 +228,7 @@ private static final long serialVersionUID = 0L;
    * type of food
    * </pre>
    *
-   * <code>string food_type = 4;</code>
+   * <code>string food_type = 3;</code>
    * @return The bytes for foodType.
    */
   @java.lang.Override
@@ -246,14 +246,14 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int QUANTITY_FIELD_NUMBER = 5;
+  public static final int QUANTITY_FIELD_NUMBER = 4;
   private int quantity_;
   /**
    * <pre>
    * quantity requested
    * </pre>
    *
-   * <code>int32 quantity = 5;</code>
+   * <code>int32 quantity = 4;</code>
    * @return The quantity.
    */
   @java.lang.Override
@@ -276,16 +276,16 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, recipient_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, recipient_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deliveryAddress_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, deliveryAddress_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deliveryAddress_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(foodType_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, foodType_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, foodType_);
     }
     if (quantity_ != 0) {
-      output.writeInt32(5, quantity_);
+      output.writeInt32(4, quantity_);
     }
     unknownFields.writeTo(output);
   }
@@ -297,17 +297,17 @@ private static final long serialVersionUID = 0L;
 
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, recipient_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, recipient_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deliveryAddress_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, deliveryAddress_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deliveryAddress_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(foodType_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, foodType_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, foodType_);
     }
     if (quantity_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, quantity_);
+        .computeInt32Size(4, quantity_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -617,10 +617,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object recipient_ = "";
     /**
      * <pre>
-     * int32 id = 1;                // unique identifier
+     * recipient identifier
      * </pre>
      *
-     * <code>string recipient = 2;</code>
+     * <code>string recipient = 1;</code>
      * @return The recipient.
      */
     public java.lang.String getRecipient() {
@@ -637,10 +637,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * int32 id = 1;                // unique identifier
+     * recipient identifier
      * </pre>
      *
-     * <code>string recipient = 2;</code>
+     * <code>string recipient = 1;</code>
      * @return The bytes for recipient.
      */
     public com.google.protobuf.ByteString
@@ -658,10 +658,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * int32 id = 1;                // unique identifier
+     * recipient identifier
      * </pre>
      *
-     * <code>string recipient = 2;</code>
+     * <code>string recipient = 1;</code>
      * @param value The recipient to set.
      * @return This builder for chaining.
      */
@@ -677,10 +677,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * int32 id = 1;                // unique identifier
+     * recipient identifier
      * </pre>
      *
-     * <code>string recipient = 2;</code>
+     * <code>string recipient = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearRecipient() {
@@ -691,10 +691,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * int32 id = 1;                // unique identifier
+     * recipient identifier
      * </pre>
      *
-     * <code>string recipient = 2;</code>
+     * <code>string recipient = 1;</code>
      * @param value The bytes for recipient to set.
      * @return This builder for chaining.
      */
@@ -716,7 +716,7 @@ private static final long serialVersionUID = 0L;
      * delivery address
      * </pre>
      *
-     * <code>string delivery_address = 3;</code>
+     * <code>string delivery_address = 2;</code>
      * @return The deliveryAddress.
      */
     public java.lang.String getDeliveryAddress() {
@@ -736,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * delivery address
      * </pre>
      *
-     * <code>string delivery_address = 3;</code>
+     * <code>string delivery_address = 2;</code>
      * @return The bytes for deliveryAddress.
      */
     public com.google.protobuf.ByteString
@@ -757,7 +757,7 @@ private static final long serialVersionUID = 0L;
      * delivery address
      * </pre>
      *
-     * <code>string delivery_address = 3;</code>
+     * <code>string delivery_address = 2;</code>
      * @param value The deliveryAddress to set.
      * @return This builder for chaining.
      */
@@ -776,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * delivery address
      * </pre>
      *
-     * <code>string delivery_address = 3;</code>
+     * <code>string delivery_address = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearDeliveryAddress() {
@@ -790,7 +790,7 @@ private static final long serialVersionUID = 0L;
      * delivery address
      * </pre>
      *
-     * <code>string delivery_address = 3;</code>
+     * <code>string delivery_address = 2;</code>
      * @param value The bytes for deliveryAddress to set.
      * @return This builder for chaining.
      */
@@ -812,7 +812,7 @@ private static final long serialVersionUID = 0L;
      * type of food
      * </pre>
      *
-     * <code>string food_type = 4;</code>
+     * <code>string food_type = 3;</code>
      * @return The foodType.
      */
     public java.lang.String getFoodType() {
@@ -832,7 +832,7 @@ private static final long serialVersionUID = 0L;
      * type of food
      * </pre>
      *
-     * <code>string food_type = 4;</code>
+     * <code>string food_type = 3;</code>
      * @return The bytes for foodType.
      */
     public com.google.protobuf.ByteString
@@ -853,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * type of food
      * </pre>
      *
-     * <code>string food_type = 4;</code>
+     * <code>string food_type = 3;</code>
      * @param value The foodType to set.
      * @return This builder for chaining.
      */
@@ -872,7 +872,7 @@ private static final long serialVersionUID = 0L;
      * type of food
      * </pre>
      *
-     * <code>string food_type = 4;</code>
+     * <code>string food_type = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearFoodType() {
@@ -886,7 +886,7 @@ private static final long serialVersionUID = 0L;
      * type of food
      * </pre>
      *
-     * <code>string food_type = 4;</code>
+     * <code>string food_type = 3;</code>
      * @param value The bytes for foodType to set.
      * @return This builder for chaining.
      */
@@ -908,7 +908,7 @@ private static final long serialVersionUID = 0L;
      * quantity requested
      * </pre>
      *
-     * <code>int32 quantity = 5;</code>
+     * <code>int32 quantity = 4;</code>
      * @return The quantity.
      */
     @java.lang.Override
@@ -920,7 +920,7 @@ private static final long serialVersionUID = 0L;
      * quantity requested
      * </pre>
      *
-     * <code>int32 quantity = 5;</code>
+     * <code>int32 quantity = 4;</code>
      * @param value The quantity to set.
      * @return This builder for chaining.
      */
@@ -935,7 +935,7 @@ private static final long serialVersionUID = 0L;
      * quantity requested
      * </pre>
      *
-     * <code>int32 quantity = 5;</code>
+     * <code>int32 quantity = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearQuantity() {

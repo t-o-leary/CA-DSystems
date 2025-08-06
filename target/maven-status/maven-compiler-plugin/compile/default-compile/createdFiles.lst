@@ -5,12 +5,14 @@ foodSurplus.class
 grpc\foodaid\Deliver\DeliveryClient$1.class
 grpc\foodaid\Deliver\DeliveryServiceGrpc$DeliveryServiceMethodDescriptorSupplier.class
 grpc\foodaid\Order\OrderServiceGrpc$MethodHandlers.class
+GUI\InitialiseService3$4.class
 grpc\foodaid\Order\OrderServiceGrpc$OrderServiceBaseDescriptorSupplier.class
 GUI\InitialiseService2$3.class
 grpc\foodaid\Deliver\DeliveryOrderOrBuilder.class
 grpc\foodaid\Order\OrderConfirmationOrBuilder.class
 grpc\foodaid\Chat\ChatServiceGrpc$1.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$2.class
+GUI\InitialiseService3$1.class
 grpc\foodaid\Order\OrderImpl.class
 grpc\foodaid\Deliver\DeliveryServiceGrpc.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$MethodHandlers.class
@@ -84,6 +86,7 @@ grpc\foodaid\Chat\ChatImpl.class
 GUI\InitialiseService2.class
 grpc\foodaid\Chat\ChatServiceGrpc$2.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$SurplusServiceFileDescriptorSupplier.class
+GUI\InitialiseService3$2.class
 grpc\foodaid\Deliver\DeliveryServiceGrpc$MethodHandlers.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$SurplusServiceBaseDescriptorSupplier.class
 grpc\foodaid\Deliver\DeliveryServiceGrpc$DeliveryServiceFileDescriptorSupplier.class
@@ -96,6 +99,7 @@ grpc\foodaid\Deliver\DeliveryServiceGrpc$DeliveryServiceBaseDescriptorSupplier.c
 grpc\foodaid\Order\OrderStatusUpdate$Builder.class
 grpc\foodaid\Deliver\DeliveryPlan$1.class
 grpc\foodaid\Chat\ChatServiceGrpc$ChatServiceBaseDescriptorSupplier.class
+GUI\InitialiseService3$3.class
 grpc\foodaid\Chat\ChatResponse$1.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$SurplusServiceImplBase.class
 grpc\foodaid\Chat\ChatServer$1.class
@@ -107,6 +111,7 @@ grpc\foodaid\Order\OrderClient.class
 grpc\foodaid\Order\OrderRequest.class
 grpc\foodaid\Chat\ChatServiceGrpc$3.class
 grpc\foodaid\Chat\ChatServiceGrpc.class
+GUI\InitialiseService3.class
 GUI\ConsoleInterface.class
 grpc\foodaid\Chat\ChatResponse.class
 grpc\foodaid\Order\OrderServiceGrpc$OrderServiceMethodDescriptorSupplier.class

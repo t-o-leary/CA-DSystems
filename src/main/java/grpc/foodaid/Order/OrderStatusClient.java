@@ -32,8 +32,8 @@ public class OrderStatusClient {
 	}
 	
 	
-	public static void main(String[] args) throws Exception {
-	    OrderStatusClient client = new OrderStatusClient("localhost", 50052);
+	public static void main(String[] x,String host, Integer port) throws Exception {
+	    OrderStatusClient client = new OrderStatusClient(host, port);
 	    try {
 	        OrderStatusRequest statusRequest = OrderStatusRequest.newBuilder().setOrderId("123").build();
 	        Iterator<OrderStatusUpdate> updates = client.StreamOrderUpdates(statusRequest);
