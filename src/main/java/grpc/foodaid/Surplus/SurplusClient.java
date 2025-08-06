@@ -14,7 +14,7 @@ public class SurplusClient {
 
 	public SurplusClient(String host, int port) {
 		this.channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
-		this.blockingStub =SurplusServiceGrpc.newBlockingStub(channel);
+		this.blockingStub = SurplusServiceGrpc.newBlockingStub(channel);
 	}
 
 	public SurplusAcknowledge recordSurplus(SurplusRequest request) {

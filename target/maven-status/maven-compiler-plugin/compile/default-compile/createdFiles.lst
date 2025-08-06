@@ -73,6 +73,7 @@ grpc\foodaid\Order\OrderStatusRequestOrBuilder.class
 grpc\foodaid\Chat\ChatServiceGrpc$ChatServiceBlockingStub.class
 grpc\foodaid\Order\OrderStatusRequest.class
 grpc\foodaid\Chat\ChatRequest$Builder.class
+GUI\InitialiseService4.class
 grpc\foodaid\Deliver\DeliveryClient.class
 grpc\foodaid\Surplus\SurplusServiceGrpc.class
 grpc\foodaid\Order\OrderConfirmation$Builder.class
@@ -83,6 +84,7 @@ grpc\foodaid\Order\OrderStatusUpdate$1.class
 grpc\foodaid\Order\OrderRequest$1.class
 grpc\foodaid\Order\OrderRequestOrBuilder.class
 grpc\foodaid\Chat\ChatImpl.class
+GUI\InitialiseService4$3.class
 GUI\InitialiseService2.class
 grpc\foodaid\Chat\ChatServiceGrpc$2.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$SurplusServiceFileDescriptorSupplier.class
@@ -101,6 +103,7 @@ grpc\foodaid\Deliver\DeliveryPlan$1.class
 grpc\foodaid\Chat\ChatServiceGrpc$ChatServiceBaseDescriptorSupplier.class
 GUI\InitialiseService3$3.class
 grpc\foodaid\Chat\ChatResponse$1.class
+GUI\InitialiseService4$1.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$SurplusServiceImplBase.class
 grpc\foodaid\Chat\ChatServer$1.class
 grpc\foodaid\Chat\ChatClient.class
@@ -113,6 +116,7 @@ grpc\foodaid\Chat\ChatServiceGrpc$3.class
 grpc\foodaid\Chat\ChatServiceGrpc.class
 GUI\InitialiseService3.class
 GUI\ConsoleInterface.class
+GUI\InitialiseService4$2.class
 grpc\foodaid\Chat\ChatResponse.class
 grpc\foodaid\Order\OrderServiceGrpc$OrderServiceMethodDescriptorSupplier.class
 grpc\foodaid\Order\OrderServiceGrpc$OrderServiceFutureStub.class

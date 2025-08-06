@@ -133,7 +133,7 @@ public class InitialiseService3 {
 			public void actionPerformed(ActionEvent e) {
 				btnStartService3.setText("Starting Delivery Service...");
 				new Thread(() -> {
-					SwingUtilities.invokeLater(() -> btnStartService3.setText("Order Delivery Started"));
+					SwingUtilities.invokeLater(() -> btnStartService3.setText("Delivery Service Started"));
 					DeliveryServer.main(new String[] { String.valueOf(portS3) });
 				}).start();
 				btnStartService3.setEnabled(false);

@@ -33,7 +33,7 @@ public class ConsoleInterface {
 	private InitialiseService1 service1Panel;
 	private InitialiseService2 service2Panel;
 	private InitialiseService3 service3Panel;
-	//private InitialiseService4 service4Panel;
+	private InitialiseService4 service4Panel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
@@ -57,7 +57,7 @@ public class ConsoleInterface {
 		service1Panel = new InitialiseService1(frame, portS1);
 		service2Panel = new InitialiseService2(frame, portS2);
 		service3Panel = new InitialiseService3(frame, portS3);
-		// service4Panel = new InitialiseService4(frame, portS4);
+		service4Panel = new InitialiseService4(frame, portS4);
 		// initialiseService2(portS2);
 
 		service1.addActionListener(e -> {
@@ -69,8 +69,8 @@ public class ConsoleInterface {
 			service2Panel.groupPanelService2_btn.setVisible(false);
 			service3Panel.groupPanelService3.setVisible(false);
 			service3Panel.groupPanelService3_btn.setVisible(false);
-			//service4Panel.groupPanelService4.setVisible(false);
-			//service4Panel.groupPanelService4.setVisible(false);
+			service4Panel.groupPanelService4.setVisible(false);
+			service4Panel.groupPanelService4_btn.setVisible(false);
 			if (isPortAvailable(portS1)) {
 
 				// Set the service started flag
@@ -91,8 +91,8 @@ public class ConsoleInterface {
 			service1Panel.groupPanelService1_btn.setVisible(false);
 			service3Panel.groupPanelService3.setVisible(false);
 			service3Panel.groupPanelService3_btn.setVisible(false);
-			//service4Panel.groupPanelService4.setVisible(false);
-			//service4Panel.groupPanelService4.setVisible(false);
+			service4Panel.groupPanelService4.setVisible(false);
+			service4Panel.groupPanelService4_btn.setVisible(false);
 			// Show Service 2 panel
 			if (isPortAvailable(portS2)) {
 
@@ -117,8 +117,8 @@ public class ConsoleInterface {
 			service1Panel.groupPanelService1_btn.setVisible(false);
 			service2Panel.groupPanelService2.setVisible(false);
 			service2Panel.groupPanelService2_btn.setVisible(false);
-			//service4Panel.groupPanelService4.setVisible(false);
-			//service4Panel.groupPanelService4_btn.setVisible(false);
+			service4Panel.groupPanelService4.setVisible(false);
+			service4Panel.groupPanelService4_btn.setVisible(false);
 			
 			
 			// Show Service 2 panel
@@ -140,7 +140,7 @@ public class ConsoleInterface {
 		service4.addActionListener(e -> {
 			// Hide Service 1 panel when the menu item is clicked
 			
-			//service4Panel.groupPanelService4_btn.setVisible(true);
+			service4Panel.groupPanelService4_btn.setVisible(true);
 			
 			service1Panel.groupPanelService1.setVisible(false);
 			service1Panel.groupPanelService1_btn.setVisible(false);
@@ -157,10 +157,10 @@ public class ConsoleInterface {
 
 				// Set the service started flag
 
-				//service4Panel.groupPanelService4.setVisible(false);
+				service4Panel.groupPanelService4.setVisible(false);
 
 			} else {
-				//service4Panel.groupPanelService4.setVisible(true);
+				service4Panel.groupPanelService4.setVisible(true);
 
 			}
 			});

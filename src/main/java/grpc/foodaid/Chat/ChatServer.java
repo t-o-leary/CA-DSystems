@@ -14,27 +14,37 @@ public class ChatServer extends ChatServiceGrpc.ChatServiceImplBase {
 	private static LinkedHashSet<StreamObserver<ChatResponse>> observers = new LinkedHashSet<>();
 private static final Logger logger = Logger.getLogger(ChatServer.class.getName());
 	
-	public static void main(String[] args)  throws IOException, InterruptedException {
+	public static void main(String[] port)  throws IOException, InterruptedException {
         // Start the Chat server here.
         // This will involve setting up the gRPC server,
         // registering the Chat service implementation,
         // and starting the server to listen for incoming requests.
         
-        int port = 50054; // Example port number for the Chat service
+        int iPort ;
+		
+		if (port[0] == null || port[0] == "0" || port.length == 0 ) {
+	          
+			 iPort = 50054;
+			 
+			 System.out.println("No port specified, using default port: " + iPort);
+			} else {
+				iPort = Integer.parseInt(port[0]);
+				System.out.println("Using specified port: " + iPort);
+			}
         
-        if (isPortAvailable(port)) {
+        if (isPortAvailable(iPort)) {
             System.out.println("Port " + port + " is available.");
             try {
                 System.out.println("Starting Chat server...");
-                io.grpc.Server server = io.grpc.ServerBuilder.forPort(port).addService(new ChatServer()).build().start();
-                System.out.println("Chat Server started on port " + port);
-                logger.info("Chat Server started, listening on " + port);
+                io.grpc.Server server = io.grpc.ServerBuilder.forPort(iPort).addService(new ChatServer()).build().start();
+                System.out.println("Chat Server started on port " + iPort);
+                logger.info("Chat Server started, listening on " + iPort);
                 server.awaitTermination();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Port " + port + " is already in use.");
+            System.out.println("Port " + iPort + " is already in use.");
         }
     }
 	
@@ -70,12 +80,21 @@ private static final Logger logger = Logger.getLogger(ChatServer.class.getName()
 		return new StreamObserver<ChatRequest>() {
 	        @Override
 	        public void onNext(ChatRequest request) {
-	        	Date d1 = new Date();
 	        	
-	        	for (StreamObserver<ChatResponse> observer : observers) {
-					observer.onNext(ChatResponse.newBuilder()
-							//.setDateTime(d1.toString())
-							.setResponseMessage("Received: " + request.getMessage()).build());
+	        	Logger.getLogger(ChatServer.class.getName()).info("Received message from " + request.getSenderName());
+	        	
+	        	ChatResponse response = ChatResponse.newBuilder()
+	                    .setResponseMessage("Received: " + request.getMessage())
+	                    .build();
+	                // Broadcast to all observers
+	                for (StreamObserver<ChatResponse> observer : observers) {
+					
+					try {
+	                    observer.onNext(response);
+	                } catch (Exception e) {
+	                    // Remove observer if sending fails
+	                    observers.remove(observer);
+	                }
 	        	}
 	        	
 	        	
