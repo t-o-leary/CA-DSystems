@@ -1,26 +1,43 @@
+/*------------------------------------------------------------------------------------------------------------------
+ * InitialiseService2 class
+ * 
+ * Author Tim O’Leary
+ * Student ID: 23287021 
+ * Version 1.0
+ * Program: Higher Diploma in Science in Computing
+ * Module: Distributed Systems  (HDSDEV_JAN25)
+ * Lecturer: Sheresh Zahoor
+ * Project: CA
+ * Submission Date 08-August-2025
+ * 
+ * The InitialiseService2 class provides a GUI for interacting with the Order gRPC service.
+ * It allows users to submit new food orders and subscribe to real-time order status updates.
+ * The class manages user input fields, response labels, and action buttons, and handles remote
+ * invocations to the gRPC server with robust error handling and user-friendly error messaging. 
+ *  
+------------------------------------------------------------------------------------------------------------------*/
 
-
-
-
-// src/main/java/GUI/initialiseService1.java
 package GUI;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Iterator;
+// import libraries
+import java.awt.Color; // for Colour
+import java.awt.event.ActionEvent; // for ActionEvent
+import java.awt.event.ActionListener;// for ActionListener
+import java.util.Iterator;// for Iterator
 
-import javax.swing.*;
+import javax.swing.*;// for GUI components
 
-import grpc.foodaid.Order.OrderClient;
-import grpc.foodaid.Order.OrderConfirmation;
-import grpc.foodaid.Order.OrderRequest;
-import grpc.foodaid.Order.OrderServer;
-import grpc.foodaid.Order.OrderStatusClient;
-import grpc.foodaid.Order.OrderStatusRequest;
-import grpc.foodaid.Order.OrderStatusUpdate;
+import grpc.foodaid.Order.OrderClient;// for OrderClient
+import grpc.foodaid.Order.OrderConfirmation;// for OrderConfirmation
+import grpc.foodaid.Order.OrderRequest;// for OrderRequest
+import grpc.foodaid.Order.OrderServer;//	
+import grpc.foodaid.Order.OrderStatusClient;// for OrderStatusClient
+import grpc.foodaid.Order.OrderStatusRequest;// for OrderStatusRequest
+import grpc.foodaid.Order.OrderStatusUpdate;// for OrderStatusUpdate
+import io.grpc.StatusRuntimeException;// for handling gRPC status exceptions
 
 public class InitialiseService2 {
+	// GUI components for Service 2 (Order Service)
 	public JTextField txtFoodType;
 	public JTextField txtQuantity;
 	public JTextField txtRecipient;
@@ -39,6 +56,7 @@ public class InitialiseService2 {
 	public JButton btnSubmitS2;
 	public JButton btnSubscribeS2;
 
+// Constructor for InitialiseService2
 	public InitialiseService2(JFrame frame, int portS2) {
 		txtRecipient = new JTextField();
 		txtRecipient.setBounds(195, 63, 211, 20);
@@ -124,43 +142,68 @@ public class InitialiseService2 {
 		groupPanelService2_btn.add(btnStartService2);
 
 		groupPanelService2.setVisible(false);
-
+// Action to start the Order Service
 		btnStartService2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				btnStartService2.setText("Starting Ordering Service...");
-				new Thread(() -> {
-					SwingUtilities.invokeLater(() -> btnStartService2.setText("Order Service Started"));
-					OrderServer.main(new String[] { String.valueOf(portS2) });
-				}).start();
-				btnStartService2.setEnabled(false);
-				btnStartService2.setBackground(Color.GRAY);
-				groupPanelService2.setVisible(true);
+				btnStartService2.setText("Starting Ordering Service...");// Update button text to indicate service start
+				new Thread(() -> {// Start a new thread to run the OrderServer
+					SwingUtilities.invokeLater(() -> btnStartService2.setText("Order Service Started"));// Update button
+																										// text after
+																										// starting
+																										// service
+					OrderServer.main(new String[] { String.valueOf(portS2) });// Start the OrderServer with the
+																				// specified port
+				}).start();// Start the thread to avoid blocking the GUI
+				btnStartService2.setEnabled(false);// Disable the button to prevent multiple clicks
+				btnStartService2.setBackground(Color.GRAY);// Change button color to indicate service is starting
+				groupPanelService2.setVisible(true);// Make the service panel visible
 			}
 		});
-
+// Add components to the frame
 		frame.getContentPane().add(groupPanelService2);
 		frame.getContentPane().add(groupPanelService2_btn);
 
 		btnSubmitS2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String recipient = txtRecipient.getText();
-				String foodType = txtFoodType.getText();
-				int quantity = Integer.parseInt(txtQuantity.getText());
-				String deliveryAddress = txtDeliveryAddress.getText();
+			public void actionPerformed(ActionEvent e) {// Action to handle order submission
+				// Validate input fields
+				// Get text from input fields and trim whitespace
+				String recipient = txtRecipient.getText().trim();
+				String foodType = txtFoodType.getText().trim();
+				String quantityStr = txtQuantity.getText().trim();
+				String deliveryAddress = txtDeliveryAddress.getText().trim();
 
-				OrderRequest request = OrderRequest.newBuilder().setRecipient(recipient).setFoodType(foodType)
+				if (recipient.isEmpty() || foodType.isEmpty() || quantityStr.isEmpty() || deliveryAddress.isEmpty()) {// Check if any field is empty
+					lblS2Response.setText("All fields must be filled in.");
+					return;
+				}
+
+				int quantity;
+				try {
+					quantity = Integer.parseInt(quantityStr);// Parse quantity as an integer
+					if (quantity <= 0) {
+						lblS2Response.setText("Quantity must be a positive integer.");//	 Check if quantity is positive
+						return;
+					}
+				} catch (NumberFormatException ex) {
+					lblS2Response.setText("Quantity must be a valid integer.");// Handle invalid integer format
+					return;
+				}
+
+				OrderRequest request = OrderRequest.newBuilder().setRecipient(recipient).setFoodType(foodType)// Create OrderRequest object with recipient, food type, quantity, and delivery address
 						.setQuantity(quantity).setDeliveryAddress(deliveryAddress).build();
 
-				OrderClient client = new OrderClient("localhost", portS2);
+				OrderClient client = new OrderClient("localhost", portS2);// Create OrderClient instance
 				try {
-
-					OrderConfirmation response = client.placeOrder(request);
-					lblS2Response.setText("Server response: " + response.getMessage());
+					OrderConfirmation response = client.placeOrder(request); // Place the order using the client
+					lblS2Response.setText("Server response: " + response.getMessage());// Display server response
+				} catch (StatusRuntimeException ex) {// Handle gRPC status exceptions
+					lblS2Response.setText("gRPC error: " + ex.getStatus().getDescription());// Display gRPC error
+																							// message
 				} catch (Exception ex) {
-					lblS2Response.setText("Error: " + ex.getMessage());
-				} finally {
+					lblS2Response.setText("Unexpected error: " + ex.getMessage());// Display unexpected error message
+				} finally {// Ensure client shutdown
 					try {
-						client.shutdown();
+						client.shutdown();// Shutdown the client to release resources
 					} catch (InterruptedException ignored) {
 					}
 
@@ -168,36 +211,61 @@ public class InitialiseService2 {
 			}
 		});
 
-		btnSubscribeS2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new Thread(() -> {
-					String orderId = txtOrderId.getText();
-					OrderStatusRequest request = OrderStatusRequest.newBuilder().setOrderId(orderId).build();
+		btnSubscribeS2.addActionListener(new ActionListener() { // Action to handle order status subscription
 
-					OrderStatusClient client2 = new OrderStatusClient("localhost", portS2);
-					StringBuilder statusMessages = new StringBuilder();
+			public void actionPerformed(ActionEvent e) {
+				String orderId = txtOrderId.getText().trim();// Get the order ID from the text field
+				if (orderId.isEmpty()) {// Check if order ID is empty
+					SwingUtilities.invokeLater(() -> lblS2ResponseSub.setText("Order ID must not be empty."));
+					return;
+				}
+				new Thread(() -> {
+
+					OrderStatusRequest request = OrderStatusRequest.newBuilder().setOrderId(orderId).build();// Create
+																												// OrderStatusRequest
+																												// object
+
+					OrderStatusClient client2 = new OrderStatusClient("localhost", portS2);// Create OrderStatusClient
+																							// instance
+					StringBuilder statusMessages = new StringBuilder();// Initialize StringBuilder for status messages
 					try {
-						int count = 1;
-						Iterator<OrderStatusUpdate> updates = client2.StreamOrderUpdates(request);
-						while (updates.hasNext()) {
-							OrderStatusUpdate update = updates.next();
-							statusMessages.append((count++) + ". Order ").append(update.getOrderId())
-									.append(" status: ").append(update.getStatus()).append("<br>");
+						int count = 1;// Initialize count for message numbering
+						Iterator<OrderStatusUpdate> updates = client2.StreamOrderUpdates(request);// Get order status
+																									// updates from the
+																									// client
+						while (updates.hasNext()) {// Iterate through the updates
+							OrderStatusUpdate update = updates.next();// Get the next update
+							statusMessages.append((count++) + ". Order ").append(update.getOrderId())// Append the order
+																										// ID to the
+																										// status
+																										// message
+									.append(" status: ").append(update.getStatus()).append("<br>");// Append the status
+																									// message to the
+																									// StringBuilder
 							SwingUtilities.invokeLater(() -> {
-								lblS2ResponseSub.setText("<html>" + statusMessages.toString() + "</html>");
+								lblS2ResponseSub.setText("<html>" + statusMessages.toString() + "</html>");// Update the
+																											// label
+																											// with the
+																											// status
+																											// messages
 							});
 						}
-					} catch (Exception ex) {
+					} catch (StatusRuntimeException ex) {
 						SwingUtilities.invokeLater(() -> {
-							lblS2ResponseSub.setText("Error: " + ex.getMessage());
+							lblS2ResponseSub.setText("gRPC error: " + ex.getStatus().getDescription());// Display gRPC
+																										// error message
+						});
+					} catch (Exception ex) {
+						SwingUtilities.invokeLater(() -> {// Handle unexpected exceptions
+							lblS2ResponseSub.setText("Unexpected error: " + ex.getMessage());
 						});
 					} finally {
 						try {
-							client2.shutdown();
+							client2.shutdown();// Shutdown the client to release resources
 						} catch (InterruptedException ignored) {
 						}
 					}
-				}).start();
+				}).start();// Start the thread to avoid blocking the GUI
 			}
 		});
 
