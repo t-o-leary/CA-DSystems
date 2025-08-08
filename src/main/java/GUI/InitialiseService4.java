@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 import javax.swing.*;
 
@@ -18,6 +19,12 @@ import io.grpc.stub.StreamObserver;
 
 
 public class InitialiseService4 {
+	
+	private boolean ignoreResponses = false;
+	//private String currentText = "";
+	
+	private StringBuilder currentText = new StringBuilder("<table width='100%'>");
+	
 	public JTextField txtSenderName;
 	public JTextField txtMessage;
 	//public JTextField txtmessage;
@@ -29,6 +36,7 @@ public class InitialiseService4 {
 	//public JLabel lblDeliveryAddress;
 	//public JLabel lblOrderId;
 	public JLabel lblS4Response;
+	public JLabel lblS4ERROR ;
 	//public JLabel lblS3Response2;
 	//public JLabel lblS3ResponseSub;
 	public JPanel groupPanelService4;
@@ -38,6 +46,10 @@ public class InitialiseService4 {
 	//public JButton btnCompleteS3;
 
 	public InitialiseService4(JFrame frame, int portS4) {
+		
+		
+		
+		
 		txtSenderName = new JTextField();
 		txtSenderName.setBounds(195, 63, 211, 20);
 		txtSenderName.setColumns(10);
@@ -54,10 +66,13 @@ public class InitialiseService4 {
 		//txtDeliveryAddress.setColumns(10);
 		//txtDeliveryAddress.setBounds(195, 156, 211, 20);
 
-		lblS4Response = new JLabel("XXXXXXXXXXX");
-		lblS4Response.setBounds(55, 120, 514, 77);
-		lblS4Response.setFont(lblS4Response.getFont().deriveFont(16f));
-		lblS4Response.setForeground(Color.BLUE);
+		lblS4Response = new JLabel("");
+		lblS4Response.setVerticalAlignment(SwingConstants.TOP);
+		lblS4Response.setBounds(87, 150, 400, 100); // Increase height
+		
+		lblS4ERROR = new JLabel("");
+		lblS4ERROR.setForeground(Color.RED);
+		lblS4ERROR.setBounds(87, 250, 400, 20); // Position below the response label
 		
 		//lblS3Response2 = new JLabel("XXXXXXXXXXXXXXXXXXXXXX");
 		//lblS3Response2.setBounds(39, 235, 514, 77);
@@ -108,7 +123,7 @@ public class InitialiseService4 {
 		groupPanelService4.add(txtMessage);
 		//groupPanelService3.add(txtDeliveryAddress);
 
-		//groupPanelService3.add(lblS3Response);
+		groupPanelService4.add(lblS4Response);
 		//groupPanelService3.add(lblS3Response2);
 		groupPanelService4.add(lblSenderName);
 		groupPanelService4.add(lblMessage);
@@ -157,27 +172,49 @@ public class InitialiseService4 {
 		
 		 ChatClient client = new ChatClient("localhost", portS4);
         StreamObserver<ChatResponse> responseObserver = new StreamObserver<ChatResponse>() {
-            @Override
-            public void onNext(ChatResponse value) {
-				lblS4Response.setText("Delivery order submitted successfully.");
-				
-
-            }
+        	
+        	
+        	
+        	public void onNext(ChatResponse value) {
+        	    String align = ignoreResponses ? "right" : "left";// Align text based on ignoreResponses flag
+        	    String color = ignoreResponses ? "blue" : "gray";// Color text based on ignoreResponses flag
+        	    currentText.append("<tr>")
+        	        .append("<td align='").append(align).append("' style='color:").append(color).append("'><i>")
+        	        .append(value.getSenderName()).append("</i></td>")
+        	        .append("<td>").append(value.getResponseMessage()).append("</td>")
+        	        .append("</tr>");
+        	    lblS4Response.setText("<html>" + currentText.toString() + "</table></html>");
+        	    ignoreResponses = false;
+        	
+        	    
+        	    
+        	    Logger.getLogger(InitialiseService4.class.getName()).info("Received message from " + value.getSenderName() + ": " + value.getResponseMessage());
+        	   
+        	    Logger.getLogger(InitialiseService4.class.getName()).info("==================================================: ");
+        	    
+        	    Logger.getLogger(InitialiseService4.class.getName()).info(lblS4Response.getText());
+        	    
+        	    
+        	   
+        	}
 
             @Override
             public void onError(Throwable t) {
-            	lblS4Response.setText("Error: " + t.getMessage());
+            	lblS4ERROR.setText("Error: " + t.getMessage());
             }
 
             @Override
             public void onCompleted() {
-                lblS4Response.setText("Stream completed.");
+            	lblS4ERROR.setText("Stream completed.");
+                
             }
         };
 
         StreamObserver<ChatRequest> requestObserver = client.chatStub.liveChat(responseObserver);
 		
 		btnSubmitS4.addActionListener(new ActionListener() {
+			
+			
 			@Override
             public void actionPerformed(ActionEvent e) {
                 
@@ -190,14 +227,15 @@ public class InitialiseService4 {
 			                .setSenderName(txtSenderName.getText())
 			                .build();
 			            requestObserver.onNext(chat);
-			            lblS4Response.setText("Submitting delivery order for " + txtMessage.getText());													
+			           // lblS4Response.setText("Submitting delivery order for " + txtMessage.getText());	
+			            ignoreResponses = true; // Set to true to ignore responses
 			            txtMessage.setText("");
-			            txtSenderName.setText("");
+			            //txtSenderName.setText("");
 			            
 			        } catch (NumberFormatException ex) {
-			            lblS4Response.setText("Quantity must be a valid number.");
+			            lblS4ERROR.setText("Quantity must be a valid number.");
 			        } catch (Exception ex) {
-			            lblS4Response.setText("Error: " + ex.getMessage());
+			            lblS4ERROR.setText("Error: " + ex.getMessage());
 			        }
 			    }
 			});

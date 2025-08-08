@@ -8,6 +8,7 @@ grpc\foodaid\Order\OrderServiceGrpc$MethodHandlers.class
 GUI\InitialiseService3$4.class
 grpc\foodaid\Order\OrderServiceGrpc$OrderServiceBaseDescriptorSupplier.class
 GUI\InitialiseService2$3.class
+Discovery\Discovery.class
 grpc\foodaid\Deliver\DeliveryOrderOrBuilder.class
 grpc\foodaid\Order\OrderConfirmationOrBuilder.class
 grpc\foodaid\Chat\ChatServiceGrpc$1.class
@@ -23,6 +24,7 @@ GUI\InitialiseService1$2.class
 grpc\foodaid\Order\OrderServiceGrpc$3.class
 grpc\foodaid\Deliver\DeliveryServer$1.class
 grpc\foodaid\Surplus\SurplusAcknowledge$Builder.class
+grpc\foodaid\Order\OrderServiceRegistrar.class
 grpc\foodaid\Order\OrderServiceGrpc.class
 grpc\foodaid\Chat\ChatServiceGrpc$ChatServiceFutureStub.class
 grpc\foodaid\Deliver\DeliveryOrder$Builder.class
@@ -45,11 +47,13 @@ grpc\foodaid\Order\OrderStatusUpdateOrBuilder.class
 grpc\foodaid\Chat\ChatRequest.class
 grpc\foodaid\Chat\ChatServiceGrpc$MethodHandlers.class
 GUI\InitialiseService1.class
+grpc\foodaid\Deliver\DeliverServiceRegistrar.class
 grpc\foodaid\Surplus\SurplusAcknowledge$1.class
 grpc\foodaid\Order\OrderServiceGrpc$OrderServiceFileDescriptorSupplier.class
 grpc\foodaid\Deliver\DeliveryServiceGrpc$DeliveryServiceImplBase.class
 grpc\foodaid\Chat\ChatServiceGrpc$ChatServiceStub.class
 grpc\foodaid\Order\OrderServiceGrpc$OrderServiceStub.class
+grpc\foodaid\Chat\ChatServiceRegistrar.class
 grpc\foodaid\Surplus\SurplusImpl.class
 grpc\foodaid\Deliver\DeliveryOrder$1.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$3.class
@@ -65,6 +69,7 @@ grpc\foodaid\Deliver\DeliveryPlanOrBuilder.class
 foodSurplus$1.class
 grpc\foodaid\Deliver\DeliveryServiceGrpc$DeliveryServiceFutureStub.class
 GUI\InitialiseService1$1.class
+Discovery\Discovery$1.class
 grpc\foodaid\Surplus\SurplusRequest$1.class
 grpc\foodaid\Surplus\SurplusRequest.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$SurplusServiceBlockingStub.class
@@ -76,6 +81,7 @@ grpc\foodaid\Chat\ChatRequest$Builder.class
 GUI\InitialiseService4.class
 grpc\foodaid\Deliver\DeliveryClient.class
 grpc\foodaid\Surplus\SurplusServiceGrpc.class
+grpc\foodaid\Surplus\SurplusServiceRegistrar.class
 grpc\foodaid\Order\OrderConfirmation$Builder.class
 grpc\foodaid\Surplus\SurplusServiceGrpc$1.class
 grpc\foodaid\Order\OrderConfirmation.class

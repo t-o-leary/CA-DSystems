@@ -84,7 +84,7 @@ private static final Logger logger = Logger.getLogger(ChatServer.class.getName()
 	        	Logger.getLogger(ChatServer.class.getName()).info("Received message from " + request.getSenderName());
 	        	
 	        	ChatResponse response = ChatResponse.newBuilder()
-	                    .setResponseMessage("Received: " + request.getMessage())
+	                    .setResponseMessage(request.getSenderName() + "  " + request.getMessage())
 	                    .build();
 	                // Broadcast to all observers
 	                for (StreamObserver<ChatResponse> observer : observers) {
